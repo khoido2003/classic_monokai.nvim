@@ -1,5 +1,32 @@
+# Neovim
 Session.vim
 .Session.vim
-misc/*
-tests/
 doc/tags
+.netrwhist
+
+# Lua
+lua-language-server/
+.luarc.json
+
+# OS specific
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# Test files
+tests/
+misc/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Local development
+.env
+.env.local
