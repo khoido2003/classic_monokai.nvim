@@ -146,19 +146,37 @@ end
 -------------------
 
 ---Return the loaded module. If the module is not loaded, load it (loadfile)
----and then return it.
 ---@param modname string Module name
 ---@return table
 function M.mod(modname)
-  if package.loaded[modname] then
-    return package.loaded[modname]
-  end
+    if package.loaded[modname] then
+        return package.loaded[modname]
+    end
 
-  -- local path = string.format("%s/%s.lua", me, modname:gsub("%.", "/"))
-  local path = M.me .. "/" .. modname:gsub("%.", "/") .. ".lua"
-  local module = assert(loadfile(path), "can't loadfile: " .. path)()
-  package.loaded[modname] = module
-  return module
+    local paths = {
+        M.me .. "/" .. modname:gsub("%.", "/") .. ".lua",  -- Try direct path first
+        vim.fn.stdpath("data") .. "/lazy/monokai/lua/" .. modname:gsub("%.", "/") .. ".lua"  -- Try lazy.nvim path
+    }
+
+    local module = nil
+    local errors = {}
+
+    for _, path in ipairs(paths) do
+        local ok, result = pcall(loadfile, path)
+        if ok and result then
+            module = result()
+            break
+        else
+            table.insert(errors, "Failed to load " .. path .. ": " .. tostring(result))
+        end
+    end
+
+    if not module then
+        error("Failed to load module '" .. modname .. "':\n" .. table.concat(errors, "\n"))
+    end
+
+    package.loaded[modname] = module
+    return module
 end
 
 ---@param hl monokai.Highlights|string
