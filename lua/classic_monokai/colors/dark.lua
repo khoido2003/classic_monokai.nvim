@@ -9,11 +9,11 @@ local M = {
 
   charcoal = "#272822", -- editor.background
   charcoal_light = "#414339", -- dropdown.background
-  charcoal_medium = "#272822", -- editor.background
+  charcoal_medium = "#353630", -- Lighter than charcoal, more distinct
   grey = "#75715e", -- list.activeSelectionBackground
   grey_dark = "#464741", -- editorWhitespace.foreground
-  grey_darker = "#414339", -- dropdown.background
-  grey_darker_alt = "#414339", -- dropdown.background
+  grey_darker = "#32332e", -- Darker, more contrast with charcoal_light
+  grey_darker_alt = "#2f302b", -- Distinct shade from grey_darker
   grey_light = "#ccccc7", -- tab.inactiveForeground
   grey_lighter = "#e3e3dd", -- terminal.ansiWhite
   grey_medium = "#88846f", -- tokenColors comment
@@ -23,7 +23,7 @@ local M = {
 
   bg = "#272822", -- editor.background
   bg_dark = "#1e1f1c", -- editorGroupHeader.tabsBackground
-  bg_darker = "#1e1f1c", -- menu.background
+  bg_darker = "#141512", -- Darker for stronger contrast
   comment = "#88846f", -- tokenColors comment
   fg = "#f8f8f2", -- editor.foreground
   fg_dark = "#ccccc7", -- tab.inactiveForeground
