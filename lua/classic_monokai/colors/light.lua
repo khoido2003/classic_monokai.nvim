@@ -1,12 +1,14 @@
 ---@class Palette
 local M = {
-  blue = "#00b3e3",
-  green = "#4fb000",
-  magenta = "#ff004b",
-  orange = "#ff4d00",
-  purple = "#6054d0",
-  yellow = "#ff8f00",
+  -- Main syntax colors
+  blue = "#4499bf",      -- Types
+  green = "#7da900",     -- Functions
+  magenta = "#f92672",   -- Keywords
+  orange = "#f37b3f",    -- Parameters
+  purple = "#9d65ff",    -- Constants
+  yellow = "#c49619",    -- Strings
 
+  -- UI colors (keeping most of these the same since they work well)
   charcoal = "#e3e3e3",
   charcoal_light = "#d8d8d8",
   charcoal_medium = "#dedede",
@@ -31,15 +33,15 @@ local M = {
   terminal_black = "#bfbfbf",
 
   -- Extra colors
-  blue_alt = "#0087ff",
-  green_alt = "#4fb000",
-  green_light = "#7ebd00",
-  red = "#ff005f",
-  yellow_alt = "#f6f557",
+  blue_alt = "#4499bf",    -- Updated to match main blue
+  green_alt = "#7da900",   -- Updated to match main green
+  green_light = "#8fb800", -- Slightly lighter version of main green
+  red = "#f92672",        -- Using magenta as error color for consistency
+  yellow_alt = "#c49619",  -- Using main yellow
   git = {
-    add = "#4fb000",
-    change = "#ff4d00",
-    delete = "#ff004b",
+    add = "#7da900",       -- Using main green
+    change = "#f37b3f",    -- Using main orange
+    delete = "#f92672",    -- Using main magenta
   },
 }
 

@@ -92,12 +92,12 @@ Dark Theme Colors:~
   Orange     #ff9700     Parameters
 
 Light Theme Colors:~
-  Yellow     #ff8f00     Strings
-  Purple     #6054d0     Constants
-  Green      #4fb000     Functions
-  Blue       #00b3e3     Types
-  Magenta    #ff004b     Keywords
-  Orange     #ff4d00     Parameters
+  Yellow     #c49619     Strings
+  Purple     #9d65ff     Constants
+  Green      #7da900     Functions
+  Blue       #4499bf     Types
+  Magenta    #f92672     Keywords
+  Orange     #f37b3f     Parameters
 
 ================================================================================
 CREDITS                                             *classic-monokai-credits*

@@ -1,19 +1,19 @@
-# �� Classic Monokai
+# 🎨 Classic Monokai
 
-A Neovim colorscheme inspired by the classic Monokai theme from Sublime Text. This theme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) with customizations to make it closer to the original Sublime Text Monokai experience.
+> A Neovim colorscheme that brings back the beloved Monokai experience from Sublime Text.
 
-> Special thanks to [@polirritmico](https://github.com/polirritmico) for creating the original monokai-nightasty.nvim theme that served as the foundation for this project.
+## 💝 Story Behind This Theme
 
-## 🎯 Why This Theme?
+I've always been in love with the original Monokai theme from Sublime Text - its vibrant colors and perfect readability made coding a true joy. This theme is my attempt to bring that same magical experience to Neovim.
 
-I've always loved the classic Monokai theme from Sublime Text - its vibrant colors and excellent readability made coding a joy. This theme aims to bring that same experience to Neovim while adding modern features like:
+This colorscheme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) by [@polirritmico](https://github.com/polirritmico). His incredible work laid the foundation for this theme, and I'm deeply grateful for his contribution to the Neovim community. I've made some adjustments to bring the colors closer to the classic Sublime Text Monokai experience while keeping the modern Neovim features intact.
 
-* Dark and Light themes with consistent styling
-* Support for modern Neovim features and popular plugins
-* Customizable highlighting styles
-* Optional transparent backgrounds
+## ⚡️ Requirements
 
-## 🚀 Quick Start
+- Neovim >= 0.10.0
+- True color terminal support
+
+## 📦 Quick Start
 
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
@@ -29,6 +29,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
   end
 }
 ```
+
+## ⚙️ Configuration
 
 Want to customize? Here's an example with common options:
 
@@ -50,7 +52,7 @@ require("classic_monokai").setup({
 
 ## 🎨 Color Palette
 
-### Dark Theme
+### Dark Theme (Classic Monokai Colors)
 | Color   | Hex     | Used For |
 |---------|---------|----------|
 | Yellow  | #ffff87 | Strings |
@@ -63,23 +65,67 @@ require("classic_monokai").setup({
 ### Light Theme
 | Color   | Hex     | Used For |
 |---------|---------|----------|
-| Yellow  | #ff8f00 | Strings |
-| Purple  | #6054d0 | Constants |
-| Green   | #4fb000 | Functions |
-| Blue    | #00b3e3 | Types |
-| Magenta | #ff004b | Keywords |
-| Orange  | #ff4d00 | Parameters |
+| Yellow  | #c49619 | Strings |
+| Purple  | #9d65ff | Constants |
+| Green   | #7da900 | Functions |
+| Blue    | #4499bf | Types |
+| Magenta | #f92672 | Keywords |
+| Orange  | #f37b3f | Parameters |
 
-## ⚡️ Commands
+## 📸 Screenshots
+
+<details>
+<summary>Dark Theme</summary>
+
+<!-- Add your dark theme screenshots here -->
+![Dark Theme TypeScript](screenshots/dark_typescript.png)
+![Dark Theme React](screenshots/dark_react.png)
+![Dark Theme Lua](screenshots/dark_lua.png)
+
+</details>
+
+<details>
+<summary>Light Theme</summary>
+
+<!-- Add your light theme screenshots here -->
+![Light Theme TypeScript](screenshots/light_typescript.png)
+![Light Theme React](screenshots/light_react.png)
+![Light Theme Lua](screenshots/light_lua.png)
+
+</details>
+
+## ⌨️ Commands
 
 - `:colorscheme classic-monokai` - Apply the theme
 - `:MonokaiToggleLight` - Switch between dark/light modes
 
-## 📚 Need More Options?
+## 📚 Documentation
 
-Check `:help classic-monokai` for detailed configuration options and plugin integrations.
+- View the full documentation inside Neovim with `:help classic-monokai`
+- [Online documentation](doc/classic_monokai.txt) - Browse the documentation on GitHub
+- [Configuration examples](examples/config.md) - Common configuration examples
 
-## 🤝 Contributing
+The documentation includes:
+- Complete configuration options
+- Highlight group customization
+- Plugin integrations
+- Tips and troubleshooting
+
+## 🤝 Contributing & Credits
+
+This theme wouldn't exist without:
+
+- [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) by [@polirritmico](https://github.com/polirritmico) - The foundation of this theme
+- The original Monokai color scheme by Wimer Hazenberg
+- Sublime Text's Monokai theme that inspired this project
+
+### Contributing
+
+If you'd like to help improve this theme:
+
+- Open an issue if you find any bugs
+- Submit a PR if you have any improvements
+- Share your ideas through discussions
 
 This theme is a fork of monokai-nightasty.nvim and follows its open-source spirit. Feel free to:
 - Report issues
