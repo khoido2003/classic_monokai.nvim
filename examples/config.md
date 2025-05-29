@@ -100,4 +100,52 @@ require("classic_monokai").setup({
   -- Set terminal colors
   terminal_colors = true,
 })
-``` 
+```
+
+## Disable All Italics and Bold Styles
+
+```lua
+return {
+  "khoido2003/classic_monokai.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("classic_monokai").setup({
+      -- Basic theme options
+      style = "dark",
+      dark_style_background = "default",
+      
+      -- Disable italics in syntax highlighting
+      hl_styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+        functions = { italic = false },
+        variables = { italic = false },
+      },
+      
+      -- Remove any remaining italic/bold styles
+      on_highlights = function(highlights, _)
+        for _, group in pairs(highlights) do
+          -- Remove italic
+          if group.italic then
+            group.italic = false
+          end
+          -- Remove bold
+          if group.bold then
+            group.bold = false
+          end
+        end
+      end,
+    })
+
+    -- Apply the colorscheme AFTER setup
+    vim.cmd.colorscheme("classic-monokai")
+  end,
+}
+```
+
+Important notes:
+1. Always call `setup()` BEFORE applying the colorscheme
+2. Remove unused legacy options like `floats`, `sidebars`, `plugins`, etc.
+3. The `on_highlights` function will catch any remaining italic/bold styles
+4. Make sure your terminal isn't forcing italics 
