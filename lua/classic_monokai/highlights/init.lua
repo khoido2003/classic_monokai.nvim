@@ -162,4 +162,27 @@ function M.generate_inputs(opts)
   return M.inputs
 end
 
+---@param colors ColorScheme
+---@param opts monokai.Config
+function M.generate_hlgroups(colors, opts)
+  local hlgroups = {}
+
+  -- Generate highlight groups for each enabled module
+  for hlgroup, _ in pairs(M.enabled_hlgroups) do
+    local ok, module_hlgroups = pcall(M.get, hlgroup, colors, opts)
+    if ok then
+      for group, hl in pairs(module_hlgroups) do
+        hlgroups[group] = hl
+      end
+    end
+  end
+
+  -- Apply user customizations
+  if opts.on_highlights then
+    opts.on_highlights(hlgroups, colors)
+  end
+
+  return hlgroups
+end
+
 return M
