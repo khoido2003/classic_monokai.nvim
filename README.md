@@ -77,20 +77,17 @@ require("classic_monokai").setup({
 <details>
 <summary>Dark Theme</summary>
 
-<!-- Add your dark theme screenshots here -->
-![Dark Theme TypeScript](screenshots/dark_typescript.png)
-![Dark Theme React](screenshots/dark_react.png)
-![Dark Theme Lua](screenshots/dark_lua.png)
+
+![Dark Theme](screenshots/1.png)
+![Dark Theme](screenshots/2.png)
+![Dark Theme](screenshots/3.png)
 
 </details>
 
 <details>
 <summary>Light Theme</summary>
 
-<!-- Add your light theme screenshots here -->
-![Light Theme TypeScript](screenshots/light_typescript.png)
-![Light Theme React](screenshots/light_react.png)
-![Light Theme Lua](screenshots/light_lua.png)
+![Light Theme](screenshots/4.png)
 
 </details>
 
