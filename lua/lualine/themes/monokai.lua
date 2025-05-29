@@ -1,9 +1,9 @@
 local M = {}
 
 function M.get()
-  local opts = require("monokai.config").extend()
+  local opts = require("classic_monokai.config").extend()
   opts.style = opts.lualine_style == "default" and vim.o.background or opts.lualine_style
-  local c = require("monokai.colors").setup(opts)
+  local c = require("classic_monokai.colors").setup(opts)
 
   local monokai = {}
 
