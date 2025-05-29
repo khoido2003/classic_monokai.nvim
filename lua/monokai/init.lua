@@ -1,4 +1,6 @@
 local config = require("monokai.config")
+local theme = require("monokai.theme")
+local utils = require("monokai.utils")
 
 local M = {}
 
@@ -22,10 +24,13 @@ function M.load(opts)
       require("monokai.extras.ts_markdown").set_headers_marks()
     end
 
+    -- Ensure treesitter module is loaded
+    require("monokai.highlights.treesitter")
+
     M.loaded = true
   end
 
-  require("monokai.theme").setup(opts)
+  theme.setup(opts)
 end
 
 ---Toggle dark/light theme. Sets the `vim.o.background` to `dark` or `light`.

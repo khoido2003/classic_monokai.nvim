@@ -1,5 +1,6 @@
 local utils = require("monokai.utils")
 local highlights = require("monokai.highlights")
+local colors_module = require("monokai.colors")
 
 local M = {}
 
@@ -24,8 +25,10 @@ function M.setup(opts)
   end
 
   if not hlgroups then
-    colors = require("monokai.colors").setup(opts)
-    hlgroups = require("monokai.highlights").setup(colors, opts)
+    colors = colors_module.setup(opts)
+    -- Ensure treesitter module is loaded before setting up highlights
+    require("monokai.highlights.treesitter")
+    hlgroups = highlights.setup(colors, opts)
   end
 
   -- Clear highlights only when switching the theme or toggling dark/light mode
