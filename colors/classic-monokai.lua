@@ -3,4 +3,11 @@ if vim.g.colors_name then
 end
 
 vim.g.colors_name = "classic-monokai"
-require("classic_monokai").load()
+
+local ok, classic_monokai = pcall(require, "classic_monokai")
+if not ok then
+  vim.notify("Failed to load classic_monokai: " .. classic_monokai, vim.log.levels.ERROR)
+  return
+end
+
+classic_monokai.load()

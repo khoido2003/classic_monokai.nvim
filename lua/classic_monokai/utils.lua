@@ -65,7 +65,7 @@ end
 ---@return monokai.Highlights -- highlight groups with the expanded kinds
 function M.generate_kinds(hl, pattern)
   hl = hl or {}
-  local base_kinds = require("monokai-nightasty.highlights.kinds").base_kinds
+  local base_kinds = require("classic_monokai.highlights.kinds").base_kinds
   for kind, link in pairs(base_kinds) do
     local base = "LspKind" .. kind
     if pattern then
@@ -82,7 +82,7 @@ end
 ---@param color string
 ---@return string?
 function M.import_color(palette, color)
-  local colors = M.mod("monokai-nightasty.colors." .. palette)
+  local colors = M.mod("classic_monokai.colors." .. palette)
   if colors and colors[color] then
     return colors[color]
   end
@@ -182,7 +182,7 @@ end
 ---@return boolean
 function M.running_from_dev()
   local lazy_root_path = require("lazy.core.config").options.root
-  local monokai_path = require("monokai-nightasty.utils").me
+  local monokai_path = require("classic_monokai.utils").me
 
   return monokai_path:match(lazy_root_path) == nil
 end
@@ -194,7 +194,7 @@ end
 M.cache = {}
 
 function M.cache.file(filename)
-  local base_path = vim.fn.stdpath("cache") .. "/monokai-nightasty/dump-"
+  local base_path = vim.fn.stdpath("cache") .. "/classic_monokai/dump-"
   return base_path .. filename .. ".json"
 end
 

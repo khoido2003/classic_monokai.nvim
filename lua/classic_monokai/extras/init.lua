@@ -1,4 +1,4 @@
-local utils = require("monokai-nightasty.utils")
+local utils = require("classic_monokai.utils")
 
 local M = {}
 
@@ -8,9 +8,9 @@ M.extras = {
   {
     name = "palettes",
     ext = ".lua",
-    label = "Monokai Nightasty Palettes",
+    label = "Classic Monokai Palettes",
     both_styles = true,
-    url = "https://github.com/polirritmico/monokai-nightasty.nvim/tree/main/extras/palettes",
+    url = "https://github.com/khoido2003/classic_monokai.nvim/tree/main/extras/palettes",
   },
   {
     name = "kitty",
@@ -52,29 +52,29 @@ M.extras = {
 
 ---Reset to get a clean state of the colors
 ---@return monokai.Config
-function M.reset_monokai_nightasty()
+function M.reset_classic_monokai()
   for pkg in pairs(package.loaded) do
-    if pkg:find("^monokai%-nightasty") then
+    if pkg:find("^classic_monokai") then
       package.loaded[pkg] = nil
     end
   end
-  require("monokai-nightasty").setup({
+  require("classic_monokai").setup({
     auto_enable_plugins = false,
     plugins = { all = true },
     cache = false,
   })
-  require("monokai-nightasty.utils").cache.clear()
-  return require("monokai-nightasty.config").extend()
+  require("classic_monokai.utils").cache.clear()
+  return require("classic_monokai.config").extend()
 end
 
 ---Get the dark and light default palettes
 ---@return {dark:ColorScheme, light:ColorScheme}
 function M.default_colors()
-  local defaults = M.reset_monokai_nightasty()
+  local defaults = M.reset_classic_monokai()
   defaults.style = "dark"
-  local colors_dark = require("monokai-nightasty.colors").setup(defaults)
+  local colors_dark = require("classic_monokai.colors").setup(defaults)
   defaults.style = "light"
-  local colors_light = require("monokai-nightasty.colors").setup(defaults)
+  local colors_light = require("classic_monokai.colors").setup(defaults)
 
   assert(colors_dark.fg == "#ffffff", "[dark]: Wrong default fg color")
   assert(colors_light.fg == "#333333", "[light]: Wrong default fg color")
@@ -86,17 +86,17 @@ function M.generate_extra_files(silent)
   local palettes = M.default_colors()
 
   local base_dir = vim.fn.fnamemodify(utils.me, ":h") .. "/extras/"
-  local base_url = "https://github.com/polirritmico/monokai-nightasty.nvim/raw/main/extras/"
+  local base_url = "https://github.com/khoido2003/classic_monokai.nvim/raw/main/extras/"
 
   ---@param info monokai.ExtraInfo
   ---@param style string
   local function generate_extra_file(info, style)
     local colors = palettes[style]
-    local filename = info.name .. "/monokai-nightasty_" .. style .. info.ext
+    local filename = info.name .. "/classic_monokai_" .. style .. info.ext
     local target_dir = base_dir .. filename
-    local extra_mod = utils.mod("monokai-nightasty.extras." .. info.name)
+    local extra_mod = utils.mod("classic_monokai.extras." .. info.name)
     colors["_upstream_url"] = base_url .. filename
-    colors["_style_name"] = "Monokai NighTasty " .. style:gsub("^%l", string.upper)
+    colors["_style_name"] = "Classic Monokai " .. style:gsub("^%l", string.upper)
 
     utils.mkdir_parent(target_dir)
     utils.write_file(extra_mod.generate(colors), target_dir)
@@ -104,7 +104,7 @@ function M.generate_extra_files(silent)
     if info.alt then
       for _, alt in pairs(info.alt) do
         local alt_target_filepath = string.format(
-          "%s%s/monokai-nightasty_%s-%s%s",
+          "%s%s/classic_monokai_%s-%s%s",
           base_dir,
           info.name,
           style,
@@ -133,7 +133,7 @@ function M.generate_extra_files(silent)
   end
 end
 
---- Run this function through require("monokai-nightasty.extras").setup() to
+--- Run this function through require("classic_monokai.extras").setup() to
 --- generate the files into 'extras/...'
 M.setup = function()
   if not utils.running_from_dev() then

@@ -1,22 +1,90 @@
-local utils = require("monokai-nightasty.utils")
+local utils = require("classic_monokai.utils")
 local fmt = string.format
 
 -- stylua: ignore
 local M = {
-  base_url = "https://github.com/polirritmico/monokai-nightasty.nvim/tree/main/lua/monokai-nightasty/",
+  base_url = "https://github.com/khoido2003/classic_monokai.nvim/tree/main/lua/classic_monokai/",
   readme_file = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h:h:h") .. "/README.md",
 }
 
----Get the plugin url from the highlight group definition file
----@param mod_plugin string Module name of the plugin
----@return string
-function M.highlight_mod_url(mod_plugin)
-  local module = utils.mod("monokai-nightasty.highlights." .. mod_plugin)
-  return module and module.url or ""
+---@param mod_plugin string
+---@param colors ColorScheme
+---@param opts monokai.Config
+function M.get_plugin_highlights(mod_plugin, colors, opts)
+  local module = utils.mod("classic_monokai.highlights." .. mod_plugin)
+  return module.get(colors, opts)
+end
+
+function M.get_config_options()
+  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/classic_monokai/config.lua"
+  local cfg_data = utils.read_file(cfg_path)
+  return cfg_data
+end
+
+function M.get_config_defaults()
+  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/classic_monokai/config.lua"
+  local cfg_data = utils.read_file(cfg_path)
+  local defaults = cfg_data:match("M.defaults = ({.-\n})")
+  return defaults
+end
+
+function M.get_highlights_list()
+  local highlights = utils.mod("classic_monokai.highlights")
+  local ret = {}
+  for plugin, _ in pairs(highlights.implemented_plugins) do
+    ret[#ret + 1] = {
+      name = plugin,
+      url = M.base_url .. "highlights/" .. plugin .. ".lua",
+    }
+  end
+  return ret
+end
+
+function M.get_extras_list()
+  local extras = utils.mod("classic_monokai.extras.init")
+  return extras.extras
+end
+
+function M.get_extras_files()
+  local ret = {}
+  local extras = M.get_extras_list()
+  for _, extra in ipairs(extras) do
+    local files = {}
+    files[#files + 1] = {
+      name = extra.name .. "_dark" .. extra.ext,
+      url = M.base_url .. "extras/" .. extra.name .. "/classic_monokai_dark" .. extra.ext,
+    }
+    if extra.both_styles then
+      files[#files + 1] = {
+        name = extra.name .. "_light" .. extra.ext,
+        url = M.base_url .. "extras/" .. extra.name .. "/classic_monokai_light" .. extra.ext,
+      }
+    end
+    if extra.alt then
+      for _, alt in pairs(extra.alt) do
+        files[#files + 1] = {
+          name = extra.name .. "_dark-" .. alt .. extra.ext,
+          url = M.base_url
+            .. "extras/"
+            .. extra.name
+            .. "/classic_monokai_dark-"
+            .. alt
+            .. extra.ext,
+        }
+      end
+    end
+    ret[#ret + 1] = {
+      name = extra.name,
+      label = extra.label,
+      url = extra.url,
+      files = files,
+    }
+  end
+  return ret
 end
 
 function M.generate_cfg_spec_block()
-  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/monokai-nightasty/config.lua"
+  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/classic_monokai/config.lua"
   local cfg_code = utils.read_file(cfg_path)
   local spec_block = cfg_code:match("\n(---@class monokai%.Config.-)\nM.defaults = {\n")
   -- Don't document the last two fields of the spec (internal usage)
@@ -25,7 +93,7 @@ function M.generate_cfg_spec_block()
 end
 
 function M.generate_defaults_block()
-  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/monokai-nightasty/config.lua"
+  local cfg_path = vim.fn.fnamemodify(utils.me, ":p:h") .. "/classic_monokai/config.lua"
   local cfg_code = utils.read_file(cfg_path)
   local default_block = cfg_code:match("\n(M.defaults = {.-\n}\n)")
   return "````lua\n" .. default_block .. "````"
@@ -35,7 +103,7 @@ end
 ---list with the plugin name and the plugin module name with links.
 ---@return string[]
 function M.generate_implemented_plugins()
-  local highlights = utils.mod("monokai-nightasty.highlights")
+  local highlights = utils.mod("classic_monokai.highlights")
   local implemented_plugins = highlights.implemented_plugins
   local sorted_plugins_list = vim.tbl_keys(implemented_plugins)
   table.sort(sorted_plugins_list)
@@ -57,7 +125,7 @@ end
 
 ---Get the extras list from the extras module and generate a markdown list
 function M.generate_extras_list()
-  local extras = utils.mod("monokai-nightasty.extras.init")
+  local extras = utils.mod("classic_monokai.extras.init")
   local extras_list = {}
   for _, mod_data in ipairs(extras.extras) do
     local line = fmt(

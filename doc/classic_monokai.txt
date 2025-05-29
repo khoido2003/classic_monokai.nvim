@@ -18,101 +18,95 @@ a fork of monokai-nightasty.nvim with customizations and improvements.
 ==============================================================================
 2. Requirements                                    *classic_monokai-requirements*
 
-- Neovim >= 0.9.0
-- nvim-treesitter > 0.9.2
+* Neovim >= 0.8.0
+* True color terminal support
 
 ==============================================================================
 3. Installation                                    *classic_monokai-installation*
 
-Install with your package manager.
-
->lua
-    -- Lazy
+Using lazy.nvim:
+>
     {
       "khoido2003/classic_monokai.nvim",
       lazy = false,
       priority = 1000,
+      opts = {
+        dark_style_background = "default",
+        light_style_background = "default",
+        hl_styles = {
+          comments = { italic = false },
+          keywords = { italic = false },
+          functions = { italic = false },
+          variables = { italic = false },
+          floats = "default",
+          sidebars = "default",
+        },
+        on_highlights = function(highlights, _)
+          for _, group in pairs(highlights) do
+            if group.italic then
+              group.italic = false
+            end
+            if group.bold then
+              group.bold = false
+            end
+          end
+        end,
+        auto_enable_plugins = true,
+        plugins = { all = true },
+        color_headers = true,
+        dim_inactive = false,
+        lualine_bold = true,
+        lualine_style = "default",
+        markdown_header_marks = false,
+        terminal_colors = true,
+        cache = false,
+      },
     }
 <
 
 ==============================================================================
 4. Usage/Configuration                                  *classic_monokai-usage*
 
-BASIC USAGE ~
-
->lua
-    vim.opt.background = "dark" -- default to dark or light style
-    
-    local opts = {...} -- options should be setted through a setup call:
-    require("classic_monokai").setup(opts) -- ...and then load the theme:
-    require("classic_monokai").load()
-    
-    -- As an alternative, pass the options directly into load and it will run setup
-    -- the first time it is executed:
-    require("classic_monokai").load(opts)
-<
-
->vim
-    :set background=dark
-    :colorscheme classic_monokai
-<
-
-TOGGLE FUNCTION ~
-
-The plugin provides a toggle function to change the dark/light styles:
-
->lua
-    require("classic_monokai").toggle()
-<
-
->vim
-    :MonokaiToggleLight
-<
-
-CONFIGURATION DETAILS ~
-
-Set the configuration BEFORE loading the theme.
-
-SPEC: ~
-
->lua
+The theme comes with the following defaults:
+>
     {
-      "khoido2003/classic_monokai.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {
-        dark_style_background = "default", -- default | dark | transparent | #RRGGBB
-        light_style_background = "default", -- default | dark | transparent | #RRGGBB
-        markdown_header_marks = true,
-        -- hl_styles = { comments = { italic = false } },
-        terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+      style = vim.o.background,
+      dark_style_background = "default",
+      light_style_background = "default",
+      plugins = { all = true },
+      hl_styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+        functions = { italic = false },
+        variables = { italic = false },
+        floats = "default",
+        sidebars = "default",
       },
-      config = function(_, opts)
-        vim.opt.cursorline = true -- Highlight line at the cursor position
-        vim.o.background = "dark" -- Default to dark theme
-    
-        require("classic_monokai").load(opts)
-      end,
+      dim_inactive = false,
+      lualine_bold = true,
+      lualine_style = "default",
+      markdown_header_marks = false,
+      terminal_colors = true,
+      cache = false,
+      auto_enable_plugins = true,
+      color_headers = true,
     }
 <
 
 ==============================================================================
 5. Colors and Highlights                              *classic_monokai-colors*
 
-Dark Style Colors:
-  Yellow     #ffff87
-  Purple     #af87ff
-  Green      #a4e400
-  Blue       #62d8f1
-  Magenta    #fc1a70
-  Orange     #ff9700
+The theme uses the following colors:
 
-Light Style Colors:
-  Yellow     #ff8f00
-  Purple     #6054d0
   Green      #4fb000
-  Blue       #00b3e3
-  Magenta    #ff004b
-  Orange     #ff4d00
+  Blue       #00afff
+  Yellow     #ffff00
+  Red        #ff0000
+  Orange     #ff8700
+  Purple     #af00ff
+  Magenta    #ff00ff
+  White      #ffffff
+  Black      #000000
 
- vim:tw=78:ts=8:ft=help:norl: 
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl: 

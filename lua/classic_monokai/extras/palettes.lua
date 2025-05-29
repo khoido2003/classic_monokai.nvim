@@ -2,8 +2,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local opts = require("monokai-nightasty.config").extend()
-  local hlgroups = require("monokai-nightasty.highlights").setup(colors, opts)
+  local opts = require("classic_monokai.config").extend()
+  local hlgroups = require("classic_monokai.highlights").setup(colors, opts)
 
   local terminal_colors = {
     ["vim.g.terminal_color_0"] = vim.g.terminal_color_0,

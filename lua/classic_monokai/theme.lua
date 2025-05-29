@@ -1,5 +1,5 @@
-local utils = require("monokai-nightasty.utils")
-local highlights = require("monokai-nightasty.highlights")
+local utils = require("classic_monokai.utils")
+local highlights = require("classic_monokai.highlights")
 
 local M = {}
 
@@ -24,8 +24,8 @@ function M.setup(opts)
   end
 
   if not hlgroups then
-    colors = require("monokai-nightasty.colors").setup(opts)
-    hlgroups = require("monokai-nightasty.highlights").setup(colors, opts)
+    colors = require("classic_monokai.colors").setup(opts)
+    hlgroups = require("classic_monokai.highlights").setup(colors, opts)
   end
 
   -- Clear highlights only when switching the theme or toggling dark/light mode
@@ -34,7 +34,7 @@ function M.setup(opts)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "monokai-nightasty"
+  vim.g.colors_name = "classic-monokai"
 
   -- Apply the highlights
   for group, hl in pairs(hlgroups) do
@@ -90,9 +90,9 @@ function M.terminal(colors, opts)
     else
       -- HACK: In a terminal buffer fg color is handled by the "Normal" highlight.
       -- Check https://github.com/neovim/neovim/issues/26857
-      local new_hl = "MonokaiNightastyTermNormal"
+      local new_hl = "ClassicMonokaiTermNormal"
       vim.api.nvim_set_hl(0, new_hl, { fg = color })
-      local group = vim.api.nvim_create_augroup("MonokaiNightasty", { clear = true })
+      local group = vim.api.nvim_create_augroup("ClassicMonokai", { clear = true })
       vim.api.nvim_create_autocmd("TermOpen", {
         group = group,
         callback = function()

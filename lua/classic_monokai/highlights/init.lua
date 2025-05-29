@@ -1,5 +1,5 @@
-local utils = require("monokai-nightasty.utils")
-local config = require("monokai-nightasty.config")
+local utils = require("classic_monokai.utils")
+local config = require("classic_monokai.config")
 
 local M = {}
 
@@ -50,8 +50,105 @@ M.implemented_plugins = {
   ["yanky.nvim"] = "yanky",
 }
 
----Generate the highlight groups list from the implemented_plugins and the user
----configuration options.
+---@param colors ColorScheme
+---@param opts monokai.Config
+function M.setup(colors, opts)
+  -- Generate the enabled highlight groups
+  M.generate_enabled_hlgroups(opts)
+
+  -- Generate the inputs for the cache
+  local inputs = M.generate_inputs(opts)
+
+  -- Check if we have a valid cache
+  local cache = utils.cache.read(opts.style)
+  if cache and vim.deep_equal(cache.inputs, inputs) then
+    -- Apply non-cached styles customizations (colors are already applied)
+    opts.on_highlights(cache.hlgroups, colors)
+    return cache.hlgroups
+  end
+
+  -- Generate the highlight groups
+  local hlgroups = M.generate_hlgroups(colors, opts)
+
+  -- Cache the results
+  if opts.cache then
+    utils.cache.write(opts.style, { inputs = inputs, hlgroups = hlgroups, colors = colors })
+  end
+
+  return hlgroups
+end
+
+---@param opts monokai.Config
+function M.generate_enabled_hlgroups(opts)
+  -- Enabled plugins
+  local enabled = {}
+  for plugin, enable in pairs(opts.plugins) do
+    if enable then
+      enabled[plugin] = true
+    end
+  end
+
+  -- Enabled plugins by style
+  local style_plugins = opts[opts.style .. "_style_plugins"]
+  if style_plugins then
+    for plugin, enable in pairs(style_plugins) do
+      enabled[plugin] = enable
+    end
+  end
+
+  -- Enabled plugins by style background
+  local style_bg = opts[opts.style .. "_style_background"]
+  if style_bg then
+    local style_bg_plugins = opts[opts.style .. "_style_" .. style_bg .. "_plugins"]
+    if style_bg_plugins then
+      for plugin, enable in pairs(style_bg_plugins) do
+        enabled[plugin] = enable
+      end
+    end
+  end
+
+  -- Store the enabled plugins
+  M.enabled = enabled
+end
+
+---@param opts monokai.Config
+function M.generate_inputs(opts)
+  local inputs = {
+    style = opts.style,
+    style_background = opts[opts.style .. "_style_background"],
+    plugins = M.enabled,
+    hl_styles = opts.hl_styles,
+    dim_inactive = opts.dim_inactive,
+    lualine_bold = opts.lualine_bold,
+    lualine_style = opts.lualine_style,
+    markdown_header_marks = opts.markdown_header_marks,
+    terminal_colors = opts.terminal_colors,
+  }
+  return inputs
+end
+
+---@param colors ColorScheme
+---@param opts monokai.Config
+function M.generate_hlgroups(colors, opts)
+  local hlgroups = {}
+
+  -- Base highlight groups
+  hlgroups = require("classic_monokai.highlights.base").setup(colors, opts)
+
+  -- Plugin highlight groups
+  for hlgroup in pairs(M.enabled) do
+    local module = utils.mod("classic_monokai.highlights." .. hlgroup)
+    if module then
+      hlgroups = module.setup(colors, opts, hlgroups)
+    end
+  end
+
+  -- User customizations
+  opts.on_highlights(hlgroups, colors)
+
+  return hlgroups
+end
+
 ---@param opts monokai.Config
 ---@return table<string, boolean>
 function M.generate_enabled_hlgroups(opts)
@@ -103,7 +200,7 @@ end
 ---@param opts monokai.Config
 function M.get(hlgroup, colors, opts)
   ---@type {get: monokai.HighlightsFn, url: string}
-  local module = utils.mod("monokai-nightasty.highlights." .. hlgroup)
+  local module = utils.mod("classic_monokai.highlights." .. hlgroup)
   return module.get(colors, opts)
 end
 
@@ -134,32 +231,6 @@ function M.generate_inputs(opts)
   }
 
   return M.inputs
-end
-
----@param colors ColorScheme
----@param opts monokai.Config
-function M.setup(colors, opts)
-  local enabled_hlgroups = M.generate_enabled_hlgroups(opts)
-  local inputs = M.generate_inputs(opts)
-
-  -- Build full highlights
-  local ret = {}
-  local resolve_style_settings = utils.resolve_style_settings
-  for group_name in pairs(enabled_hlgroups) do
-    local highlights = M.get(group_name, colors, opts)
-    for hl_name, hl_settings in pairs(highlights) do
-      ret[hl_name] = resolve_style_settings(hl_settings)
-    end
-  end
-
-  if opts.cache then
-    utils.cache.write(opts.style, { colors = colors, hlgroups = ret, inputs = inputs })
-  end
-
-  -- Apply user configs
-  opts.on_highlights(ret, colors)
-
-  return ret, enabled_hlgroups
 end
 
 return M

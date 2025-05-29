@@ -1,6 +1,6 @@
 # 🫖 Classic Monokai
 
-A dark/light theme for Neovim based on the Monokai color palette. This theme is a fork of monokai-nightasty.nvim with customizations and improvements.
+A dark/light theme for Neovim based on the Monokai color palette. This theme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) with customizations and improvements.
 
 ## 🌆 Features
 
@@ -23,43 +23,95 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
   "khoido2003/classic_monokai.nvim",
   lazy = false,
   priority = 1000,
-  opts = function()
-    return {
-      dark_style_background = "default", -- default, dark, transparent, #RRGGBB
-      light_style_background = "default", -- default, dark, transparent, #RRGGBB
-      markdown_header_marks = true,
-      -- hl_styles = { comments = { italic = false } },
-      terminal_colors = function(colors) return { fg = colors.fg_dark } end,
-    }
+  opts = {
+    -- Your configuration here
+  },
+}
+```
+
+After installation, set the colorscheme:
+
+```lua
+-- In your init.lua
+vim.cmd.colorscheme("classic-monokai")
+```
+
+Or with lazy.nvim's config:
+
+```lua
+{
+  "khoido2003/classic_monokai.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("classic-monokai")
   end,
-  config = function(_, opts)
-    vim.opt.cursorline = true -- Highlight line at the cursor position
-    vim.o.background = "dark" -- Default to dark theme
-    require("classic_monokai").load(opts)
-  end,
+  opts = {
+    dark_style_background = "default",
+    light_style_background = "default",
+    hl_styles = {
+      comments = { italic = false },
+      keywords = { italic = false },
+      functions = { italic = false },
+      variables = { italic = false },
+      floats = "default",
+      sidebars = "default",
+    },
+    on_highlights = function(highlights, _)
+      for _, group in pairs(highlights) do
+        if group.italic then
+          group.italic = false
+        end
+        if group.bold then
+          group.bold = false
+        end
+      end
+    end,
+    auto_enable_plugins = true,
+    plugins = { all = true },
+    color_headers = true,
+    dim_inactive = false,
+    lualine_bold = true,
+    lualine_style = "default",
+    markdown_header_marks = false,
+    terminal_colors = true,
+    cache = false,
+  },
 }
 ```
 
 ## 🎨 Configuration
 
-You can customize the theme by passing options to the setup function:
+The theme comes with the following defaults:
 
 ```lua
-require("classic_monokai").setup({
-  dark_style_background = "default", -- default, dark, transparent, #RRGGBB
-  light_style_background = "default", -- default, dark, transparent, #RRGGBB
-  color_headers = true, -- Enable header colors for each header level (h1, h2, etc.)
-  lualine_bold = true, -- Lualine a and z sections font width
-  lualine_style = "default", -- "dark", "light" or "default" (Follows dark/light style)
-  markdown_header_marks = true, -- Add headers marks highlights (the `#` character) to Treesitter highlight query
-  -- Style to be applied to selected syntax groups. See `:help nvim_set_hl`
+{
+  style = vim.o.background,
+  dark_style_background = "default",
+  light_style_background = "default",
+  plugins = { all = true },
   hl_styles = {
-    keywords = { italic = true },
-    comments = { italic = true },
-    floats = "dark",
+    comments = { italic = false },
+    keywords = { italic = false },
+    functions = { italic = false },
+    variables = { italic = false },
+    floats = "default",
+    sidebars = "default",
   },
-})
+  dim_inactive = false,
+  lualine_bold = true,
+  lualine_style = "default",
+  markdown_header_marks = false,
+  terminal_colors = true,
+  cache = false,
+  auto_enable_plugins = true,
+  color_headers = true,
+}
 ```
+
+### Commands
+
+- `:MonokaiToggleLight` - Toggle between dark and light themes
 
 ## 🎨 Color Palettes
 
@@ -87,8 +139,8 @@ require("classic_monokai").setup({
 
 ## 🌱 Contributing
 
-This plugin is a fork of monokai-nightasty.nvim. Contributions, issues, and pull requests are welcome!
+This plugin is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim). Contributions, issues, and pull requests are welcome!
 
-## License
+## 📝 License
 
-Apache-2.0 license
+MIT

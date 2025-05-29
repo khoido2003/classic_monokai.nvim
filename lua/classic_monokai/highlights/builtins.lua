@@ -1,4 +1,4 @@
-local utils = require("monokai-nightasty.utils")
+local utils = require("classic_monokai.utils")
 local M = {}
 
 ---@type monokai.HighlightsFn

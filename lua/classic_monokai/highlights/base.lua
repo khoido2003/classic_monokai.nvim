@@ -1,4 +1,4 @@
-local dark = require("monokai-nightasty.utils").darken
+local dark = require("classic_monokai.utils").darken
 
 local M = {}
 
