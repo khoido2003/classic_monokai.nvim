@@ -6,7 +6,7 @@ local M = {
   ---@type monokai.UserConfig
   opts = {
     style = vim.o.background,
-    auto_enable_plugins = false,
+    auto_enable_plugins = true,
     plugins = { all = true },
     cache = false,
     color_headers = true,
