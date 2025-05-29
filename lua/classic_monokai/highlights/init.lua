@@ -63,7 +63,9 @@ function M.setup(colors, opts)
   local cache = utils.cache.read(opts.style)
   if cache and vim.deep_equal(cache.inputs, inputs) then
     -- Apply non-cached styles customizations (colors are already applied)
-    opts.on_highlights(cache.hlgroups, colors)
+    if opts.on_highlights then
+      opts.on_highlights(cache.hlgroups, colors)
+    end
     return cache.hlgroups
   end
 
@@ -152,7 +154,6 @@ function M.generate_inputs(opts)
       light_style_background = opts.light_style_background,
       lualine_bold = opts.lualine_bold,
       lualine_style = opts.lualine_style,
-      on_colors = string.dump(opts.on_colors),
       plugins = opts.plugins,
     },
     style_modules = M.generate_style_modules(),

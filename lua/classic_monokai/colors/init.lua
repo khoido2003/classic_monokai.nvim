@@ -92,7 +92,9 @@ function M.setup(opts)
   end
 
   -- Apply user config overrides
-  opts.on_colors(colors)
+  if opts.on_colors then
+    opts.on_colors(colors)
+  end
 
   return colors, opts
 end
