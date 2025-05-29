@@ -1,28 +1,14 @@
-*classic_monokai.txt*  A dark/light theme for Neovim based on the Monokai color palette
+*classic_monokai.txt*  A Sublime Text inspired Monokai theme for Neovim
 
-==============================================================================
-Table of Contents                                *classic_monokai-table-of-contents*
+================================================================================
+INTRODUCTION                                                   *classic-monokai*
 
-1. Introduction ........................... |classic_monokai-introduction|
-2. Requirements ........................... |classic_monokai-requirements|
-3. Installation ........................... |classic_monokai-installation|
-4. Usage/Configuration .................... |classic_monokai-usage|
-5. Colors and Highlights ................. |classic_monokai-colors|
+Classic Monokai brings the beloved Sublime Text Monokai experience to Neovim.
+This theme is a fork of monokai-nightasty.nvim with customizations to match
+the classic Sublime Text Monokai look while adding modern Neovim features.
 
-==============================================================================
-1. Introduction                                    *classic_monokai-introduction*
-
-A dark/light theme for Neovim based on the Monokai color palette. This theme is
-a fork of monokai-nightasty.nvim with customizations and improvements.
-
-==============================================================================
-2. Requirements                                    *classic_monokai-requirements*
-
-* Neovim >= 0.8.0
-* True color terminal support
-
-==============================================================================
-3. Installation                                    *classic_monokai-installation*
+================================================================================
+QUICK START                                          *classic-monokai-quickstart*
 
 Using lazy.nvim:
 >
@@ -30,83 +16,101 @@ Using lazy.nvim:
       "khoido2003/classic_monokai.nvim",
       lazy = false,
       priority = 1000,
-      opts = {
-        dark_style_background = "default",
-        light_style_background = "default",
-        hl_styles = {
-          comments = { italic = false },
-          keywords = { italic = false },
-          functions = { italic = false },
-          variables = { italic = false },
-          floats = "default",
-          sidebars = "default",
-        },
-        on_highlights = function(highlights, _)
-          for _, group in pairs(highlights) do
-            if group.italic then
-              group.italic = false
-            end
-            if group.bold then
-              group.bold = false
-            end
-          end
-        end,
-        auto_enable_plugins = true,
-        plugins = { all = true },
-        color_headers = true,
-        dim_inactive = false,
-        lualine_bold = true,
-        lualine_style = "default",
-        markdown_header_marks = false,
-        terminal_colors = true,
-        cache = false,
-      },
+      config = function()
+        -- Default configuration
+        require("classic_monokai").setup()
+        vim.cmd.colorscheme("classic-monokai")
+      end
     }
 <
 
-==============================================================================
-4. Usage/Configuration                                  *classic_monokai-usage*
+================================================================================
+CONFIGURATION                                        *classic-monokai-config*
 
-The theme comes with the following defaults:
+Basic configuration with common options:
 >
-    {
-      style = vim.o.background,
-      dark_style_background = "default",
-      light_style_background = "default",
-      plugins = { all = true },
+    require("classic_monokai").setup({
+      -- Choose theme style
+      style = "dark", -- or "light"
+
+      -- Style options for syntax elements
       hl_styles = {
-        comments = { italic = false },
-        keywords = { italic = false },
+        comments = { italic = true },
+        keywords = { italic = true },
         functions = { italic = false },
         variables = { italic = false },
-        floats = "default",
-        sidebars = "default",
       },
-      dim_inactive = false,
-      lualine_bold = true,
-      lualine_style = "default",
-      markdown_header_marks = false,
-      terminal_colors = true,
-      cache = false,
+
+      -- Background options
+      dark_style_background = "default", -- or "transparent"
+
+      -- Plugin integrations
       auto_enable_plugins = true,
+
+      -- Markdown options
       color_headers = true,
-    }
+
+      -- Window options
+      dim_inactive = false,
+
+      -- Statusline options
+      lualine_bold = true,
+
+      -- Terminal colors
+      terminal_colors = true,
+    })
 <
 
-==============================================================================
-5. Colors and Highlights                              *classic_monokai-colors*
+================================================================================
+COMMANDS                                             *classic-monokai-commands*
 
-The theme uses the following colors:
+                                                    *:MonokaiToggleLight*
+:MonokaiToggleLight     Switch between dark and light themes
 
-  Green      #4fb000
-  Blue       #00afff
-  Yellow     #ffff00
-  Red        #ff0000
-  Orange     #ff8700
-  Purple     #af00ff
-  Magenta    #ff00ff
-  White      #ffffff
-  Black      #000000
+================================================================================
+SUPPORTED PLUGINS                                    *classic-monokai-plugins*
 
-==============================================================================
-vim:tw=78:ts=8:ft=help:norl: 
+The theme provides carefully crafted highlighting for:
+
+- Treesitter syntax highlighting
+- LSP semantic tokens and diagnostics
+- Git signs and diffs
+- Telescope
+- NvimTree
+- Lualine
+- And many more!
+
+================================================================================
+COLOR PALETTE                                        *classic-monokai-colors*
+
+Dark Theme Colors:~
+  Yellow     #ffff87     Strings
+  Purple     #af87ff     Constants
+  Green      #a4e400     Functions
+  Blue       #62d8f1     Types
+  Magenta    #fc1a70     Keywords
+  Orange     #ff9700     Parameters
+
+Light Theme Colors:~
+  Yellow     #ff8f00     Strings
+  Purple     #6054d0     Constants
+  Green      #4fb000     Functions
+  Blue       #00b3e3     Types
+  Magenta    #ff004b     Keywords
+  Orange     #ff4d00     Parameters
+
+================================================================================
+CREDITS                                             *classic-monokai-credits*
+
+This theme is a fork of monokai-nightasty.nvim by @polirritmico:
+https://github.com/polirritmico/monokai-nightasty.nvim
+
+The color scheme is inspired by the classic Monokai theme from Sublime Text.
+
+================================================================================
+LICENSE                                             *classic-monokai-license*
+
+This project is open source and available under the same license as 
+monokai-nightasty.nvim.
+
+ vim:tw=78:ts=8:ft=help:norl: 

@@ -1,20 +1,19 @@
-# 🫖 Classic Monokai
+# �� Classic Monokai
 
-A dark/light theme for Neovim based on the Monokai color palette. This theme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) with customizations and improvements.
+A Neovim colorscheme inspired by the classic Monokai theme from Sublime Text. This theme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) with customizations to make it closer to the original Sublime Text Monokai experience.
 
-## 🌆 Features
+> Special thanks to [@polirritmico](https://github.com/polirritmico) for creating the original monokai-nightasty.nvim theme that served as the foundation for this project.
 
-* Infused with the Monokai palette for a vibrant, distraction-free coding experience.
-* Dark and Light themes with consistent color schemes
-* Support for popular plugins including:
-  * [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter)
-  * [LSP](https://github.com/neovim/nvim-lspconfig)
-  * [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-  * [NvimTree](https://github.com/nvim-tree/nvim-tree.lua)
-  * [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-  * And many more!
+## 🎯 Why This Theme?
 
-## 🚀 Installation
+I've always loved the classic Monokai theme from Sublime Text - its vibrant colors and excellent readability made coding a joy. This theme aims to bring that same experience to Neovim while adding modern features like:
+
+* Dark and Light themes with consistent styling
+* Support for modern Neovim features and popular plugins
+* Customizable highlighting styles
+* Optional transparent backgrounds
+
+## 🚀 Quick Start
 
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
@@ -23,124 +22,70 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
   "khoido2003/classic_monokai.nvim",
   lazy = false,
   priority = 1000,
-  opts = {
-    -- Your configuration here
-  },
-}
-```
-
-After installation, set the colorscheme:
-
-```lua
--- In your init.lua
-vim.cmd.colorscheme("classic-monokai")
-```
-
-Or with lazy.nvim's config:
-
-```lua
-{
-  "khoido2003/classic_monokai.nvim",
-  lazy = false,
-  priority = 1000,
   config = function()
+    -- Default configuration
+    require("classic_monokai").setup()
     vim.cmd.colorscheme("classic-monokai")
-  end,
-  opts = {
-    dark_style_background = "default",
-    light_style_background = "default",
-    hl_styles = {
-      comments = { italic = false },
-      keywords = { italic = false },
-      functions = { italic = false },
-      variables = { italic = false },
-      floats = "default",
-      sidebars = "default",
-    },
-    on_highlights = function(highlights, _)
-      for _, group in pairs(highlights) do
-        if group.italic then
-          group.italic = false
-        end
-        if group.bold then
-          group.bold = false
-        end
-      end
-    end,
-    auto_enable_plugins = true,
-    plugins = { all = true },
-    color_headers = true,
-    dim_inactive = false,
-    lualine_bold = true,
-    lualine_style = "default",
-    markdown_header_marks = false,
-    terminal_colors = true,
-    cache = false,
-  },
+  end
 }
 ```
 
-## 🎨 Configuration
-
-The theme comes with the following defaults:
+Want to customize? Here's an example with common options:
 
 ```lua
-{
-  style = vim.o.background,
-  dark_style_background = "default",
-  light_style_background = "default",
-  plugins = { all = true },
+require("classic_monokai").setup({
+  -- Choose style: "dark" or "light"
+  style = "dark",
+  
+  -- Make comments and keywords italic
   hl_styles = {
-    comments = { italic = false },
-    keywords = { italic = false },
-    functions = { italic = false },
-    variables = { italic = false },
-    floats = "default",
-    sidebars = "default",
+    comments = { italic = true },
+    keywords = { italic = true },
   },
-  dim_inactive = false,
-  lualine_bold = true,
-  lualine_style = "default",
-  markdown_header_marks = false,
-  terminal_colors = true,
-  cache = false,
-  auto_enable_plugins = true,
-  color_headers = true,
-}
+  
+  -- Use transparent background
+  dark_style_background = "transparent",
+})
 ```
 
-### Commands
+## 🎨 Color Palette
 
-- `:MonokaiToggleLight` - Toggle between dark and light themes
+### Dark Theme
+| Color   | Hex     | Used For |
+|---------|---------|----------|
+| Yellow  | #ffff87 | Strings |
+| Purple  | #af87ff | Constants |
+| Green   | #a4e400 | Functions |
+| Blue    | #62d8f1 | Types |
+| Magenta | #fc1a70 | Keywords |
+| Orange  | #ff9700 | Parameters |
 
-## 🎨 Color Palettes
+### Light Theme
+| Color   | Hex     | Used For |
+|---------|---------|----------|
+| Yellow  | #ff8f00 | Strings |
+| Purple  | #6054d0 | Constants |
+| Green   | #4fb000 | Functions |
+| Blue    | #00b3e3 | Types |
+| Magenta | #ff004b | Keywords |
+| Orange  | #ff4d00 | Parameters |
 
-### 🌃 Dark Style
+## ⚡️ Commands
 
-| Color name | Hex code |
-| ---------- | -------- |
-| Yellow     | #ffff87  |
-| Purple     | #af87ff  |
-| Green      | #a4e400  |
-| Blue       | #62d8f1  |
-| Magenta    | #fc1a70  |
-| Orange     | #ff9700  |
+- `:colorscheme classic-monokai` - Apply the theme
+- `:MonokaiToggleLight` - Switch between dark/light modes
 
-### 🏙️ Light Style
+## 📚 Need More Options?
 
-| Color name | Hex code |
-| ---------- | -------- |
-| Yellow     | #ff8f00  |
-| Purple     | #6054d0  |
-| Green      | #4fb000  |
-| Blue       | #00b3e3  |
-| Magenta    | #ff004b  |
-| Orange     | #ff4d00  |
+Check `:help classic-monokai` for detailed configuration options and plugin integrations.
 
-## 🌱 Contributing
+## 🤝 Contributing
 
-This plugin is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim). Contributions, issues, and pull requests are welcome!
+This theme is a fork of monokai-nightasty.nvim and follows its open-source spirit. Feel free to:
+- Report issues
+- Suggest improvements
+- Submit pull requests
 
 ## 📝 License
 
-MIT
+This project is open source and available under the same license as monokai-nightasty.nvim.
