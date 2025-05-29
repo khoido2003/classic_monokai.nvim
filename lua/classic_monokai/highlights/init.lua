@@ -80,78 +80,6 @@ end
 
 ---@param opts monokai.Config
 function M.generate_enabled_hlgroups(opts)
-  -- Enabled plugins
-  local enabled = {}
-  for plugin, enable in pairs(opts.plugins) do
-    if enable then
-      enabled[plugin] = true
-    end
-  end
-
-  -- Enabled plugins by style
-  local style_plugins = opts[opts.style .. "_style_plugins"]
-  if style_plugins then
-    for plugin, enable in pairs(style_plugins) do
-      enabled[plugin] = enable
-    end
-  end
-
-  -- Enabled plugins by style background
-  local style_bg = opts[opts.style .. "_style_background"]
-  if style_bg then
-    local style_bg_plugins = opts[opts.style .. "_style_" .. style_bg .. "_plugins"]
-    if style_bg_plugins then
-      for plugin, enable in pairs(style_bg_plugins) do
-        enabled[plugin] = enable
-      end
-    end
-  end
-
-  -- Store the enabled plugins
-  M.enabled = enabled
-end
-
----@param opts monokai.Config
-function M.generate_inputs(opts)
-  local inputs = {
-    style = opts.style,
-    style_background = opts[opts.style .. "_style_background"],
-    plugins = M.enabled,
-    hl_styles = opts.hl_styles,
-    dim_inactive = opts.dim_inactive,
-    lualine_bold = opts.lualine_bold,
-    lualine_style = opts.lualine_style,
-    markdown_header_marks = opts.markdown_header_marks,
-    terminal_colors = opts.terminal_colors,
-  }
-  return inputs
-end
-
----@param colors ColorScheme
----@param opts monokai.Config
-function M.generate_hlgroups(colors, opts)
-  local hlgroups = {}
-
-  -- Base highlight groups
-  hlgroups = require("classic_monokai.highlights.base").setup(colors, opts)
-
-  -- Plugin highlight groups
-  for hlgroup in pairs(M.enabled) do
-    local module = utils.mod("classic_monokai.highlights." .. hlgroup)
-    if module then
-      hlgroups = module.setup(colors, opts, hlgroups)
-    end
-  end
-
-  -- User customizations
-  opts.on_highlights(hlgroups, colors)
-
-  return hlgroups
-end
-
----@param opts monokai.Config
----@return table<string, boolean>
-function M.generate_enabled_hlgroups(opts)
   if M.enabled_hlgroups then
     return M.enabled_hlgroups
   end
@@ -199,7 +127,7 @@ end
 ---@param colors ColorScheme
 ---@param opts monokai.Config
 function M.get(hlgroup, colors, opts)
-  ---@type {get: monokai.HighlightsFn, url: string}
+  ---@type {get: monokai.HighlightsFn}
   local module = utils.mod("classic_monokai.highlights." .. hlgroup)
   return module.get(colors, opts)
 end
