@@ -11,6 +11,10 @@ function M.get(c)
     TelescopePromptPrefix = { fg = c.blue_alt },
     TelescopeSelection = { fg = c.fg, bg = c.bg_statusline },
     TelescopeSelectionCaret = { fg = c.magenta, bg = c.bg_statusline },
+    TelescopePromptNormal = { bg = c.bg_dark },
+    TelescopeResultsTitle = { fg = c.fg, bg = c.bg_dark },
+    TelescopePromptCounter = { fg = c.blue_alt },
+    TelescopeMatching = { fg = c.green, bold = true },
   }
 end
 
