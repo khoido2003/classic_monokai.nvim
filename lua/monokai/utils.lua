@@ -155,7 +155,9 @@ function M.mod(modname)
 
     local paths = {
         M.me .. "/" .. modname:gsub("%.", "/") .. ".lua",  -- Try direct path first
-        vim.fn.stdpath("data") .. "/lazy/monokai/lua/" .. modname:gsub("%.", "/") .. ".lua"  -- Try lazy.nvim path
+        vim.fn.stdpath("data") .. "/lazy/monokai/lua/" .. modname:gsub("%.", "/") .. ".lua",  -- Try lazy.nvim path
+        vim.fn.stdpath("data") .. "/site/pack/packer/start/monokai/lua/" .. modname:gsub("%.", "/") .. ".lua",  -- Try packer path
+        vim.fn.stdpath("data") .. "/site/pack/*/start/monokai/lua/" .. modname:gsub("%.", "/") .. ".lua"  -- Try any package manager path
     }
 
     local module = nil
