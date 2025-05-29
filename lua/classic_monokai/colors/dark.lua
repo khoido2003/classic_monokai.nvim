@@ -1,45 +1,45 @@
 ---@class Palette
 local M = {
-  blue = "#62d8f1",
-  green = "#a4e400",
-  magenta = "#fc1a70",
-  orange = "#ff9700",
-  purple = "#af87ff",
-  yellow = "#ffff87",
+  blue = "#66d9ef", -- terminal.ansiBrightCyan
+  green = "#a6e22e", -- tokenColors entity.name.class
+  magenta = "#f92672", -- terminal.ansiBrightRed
+  orange = "#fd971f", -- tokenColors variable.parameter
+  purple = "#ae81ff", -- tokenColors constant.numeric
+  yellow = "#e6db74", -- tokenColors string
 
-  charcoal = "#262626",
-  charcoal_light = "#313131",
-  charcoal_medium = "#2b2b2b",
-  grey = "#8a8a8a",
-  grey_dark = "#4b4b4b",
-  grey_darker = "#444444",
-  grey_darker_alt = "#3e3e3e",
-  grey_light = "#bcbcbc",
-  grey_lighter = "#dedede",
-  grey_medium = "#585858",
+  charcoal = "#272822", -- editor.background
+  charcoal_light = "#414339", -- dropdown.background
+  charcoal_medium = "#272822", -- editor.background
+  grey = "#75715e", -- list.activeSelectionBackground
+  grey_dark = "#464741", -- editorWhitespace.foreground
+  grey_darker = "#414339", -- dropdown.background
+  grey_darker_alt = "#414339", -- dropdown.background
+  grey_light = "#ccccc7", -- tab.inactiveForeground
+  grey_lighter = "#e3e3dd", -- terminal.ansiWhite
+  grey_medium = "#88846f", -- tokenColors comment
 
-  black = "#000001",
-  white = "#ffffff",
+  black = "#333333", -- terminal.ansiBlack
+  white = "#f8f8f2", -- editor.foreground
 
-  bg = "#2b2b2b",
-  bg_dark = "#1e1e1e",
-  bg_darker = "#121212",
-  comment = "#8a8a8a",
-  fg = "#ffffff",
-  fg_dark = "#e6e6e6",
-  fg_gutter = "#3e3e3e",
-  terminal_black = "#444444",
+  bg = "#272822", -- editor.background
+  bg_dark = "#1e1f1c", -- editorGroupHeader.tabsBackground
+  bg_darker = "#1e1f1c", -- menu.background
+  comment = "#88846f", -- tokenColors comment
+  fg = "#f8f8f2", -- editor.foreground
+  fg_dark = "#ccccc7", -- tab.inactiveForeground
+  fg_gutter = "#90908a", -- editorLineNumber.foreground
+  terminal_black = "#333333", -- terminal.ansiBlack
 
   -- Extra colors
-  blue_alt = "#0087ff",
-  green_alt = "#83dc78",
-  green_light = "#a4e400",
-  red = "#ff005f",
-  yellow_alt = "#f6f557",
+  blue_alt = "#819aff", -- terminal.ansiBrightBlue
+  green_alt = "#a6e22e", -- tokenColors entity.name.class (same as green)
+  green_light = "#a6e22e", -- tokenColors entity.name.class (same as green)
+  red = "#f92672", -- terminal.ansiBrightRed
+  yellow_alt = "#e2e22e", -- terminal.ansiBrightYellow
   git = {
-    add = "#a4e400",
-    change = "#ff9700",
-    delete = "#fc1a70",
+    add = "#a6e22e", -- tokenColors markup.inserted
+    change = "#e6db74", -- tokenColors markup.changed
+    delete = "#f92672", -- tokenColors markup.deleted
   },
 }
 
