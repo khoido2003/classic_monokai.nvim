@@ -2,7 +2,7 @@ local M = {
   autocmds = true,
   module = "classic_monokai",
   module_escaped = "classic_monokai",
-  colorscheme = "classic_monokai",
+  colorscheme = "classic-monokai",
   ---@type monokai.UserConfig
   opts = {
     style = vim.o.background,
