@@ -1,8 +1,8 @@
 local M = {
   autocmds = true,
-  module = "monokai-nightasty",
-  module_escaped = "monokai%-nightasty",
-  colorscheme = "monokai-nightasty",
+  module = "monokai",
+  module_escaped = "monokai",
+  colorscheme = "monokai",
   ---@type monokai.UserConfig
   opts = {
     style = vim.o.background,
@@ -19,9 +19,9 @@ local M = {
 
 function M.set_autocmds()
   local function reset()
-    require("monokai-nightasty.utils").cache.clear()
-    local opts = require("monokai-nightasty.config").extend()
-    local colors = require("monokai-nightasty.colors").setup(opts)
+    require("monokai.utils").cache.clear()
+    local opts = require("monokai.config").extend()
+    local colors = require("monokai.colors").setup(opts)
     M.globals.colors = colors
     M.globals.c = colors
   end
