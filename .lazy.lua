@@ -1,12 +1,12 @@
 local M = {
   autocmds = true,
-  module = "monokai",
-  module_escaped = "monokai",
-  colorscheme = "monokai",
+  module = "classic_monokai",
+  module_escaped = "classic_monokai",
+  colorscheme = "classic_monokai",
   ---@type monokai.UserConfig
   opts = {
     style = vim.o.background,
-    auto_enable_plugins = true,
+    auto_enable_plugins = false,
     plugins = { all = true },
     cache = false,
     color_headers = true,
@@ -19,9 +19,9 @@ local M = {
 
 function M.set_autocmds()
   local function reset()
-    require("monokai.utils").cache.clear()
-    local opts = require("monokai.config").extend()
-    local colors = require("monokai.colors").setup(opts)
+    require("classic_monokai.utils").cache.clear()
+    local opts = require("classic_monokai.config").extend()
+    local colors = require("classic_monokai.colors").setup(opts)
     M.globals.colors = colors
     M.globals.c = colors
   end
@@ -48,7 +48,7 @@ function M.set_autocmds()
 
   M.reload = vim.schedule_wrap(reload)
 
-  local augroup = vim.api.nvim_create_augroup("monokai_dev", { clear = true })
+  local augroup = vim.api.nvim_create_augroup("classic_monokai_dev", { clear = true })
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
     group = augroup,

@@ -1,0 +1,118 @@
+*classic_monokai.txt*  A dark/light theme for Neovim based on the Monokai color palette
+
+==============================================================================
+Table of Contents                                *classic_monokai-table-of-contents*
+
+1. Introduction ........................... |classic_monokai-introduction|
+2. Requirements ........................... |classic_monokai-requirements|
+3. Installation ........................... |classic_monokai-installation|
+4. Usage/Configuration .................... |classic_monokai-usage|
+5. Colors and Highlights ................. |classic_monokai-colors|
+
+==============================================================================
+1. Introduction                                    *classic_monokai-introduction*
+
+A dark/light theme for Neovim based on the Monokai color palette. This theme is
+a fork of monokai-nightasty.nvim with customizations and improvements.
+
+==============================================================================
+2. Requirements                                    *classic_monokai-requirements*
+
+- Neovim >= 0.9.0
+- nvim-treesitter > 0.9.2
+
+==============================================================================
+3. Installation                                    *classic_monokai-installation*
+
+Install with your package manager.
+
+>lua
+    -- Lazy
+    {
+      "khoido2003/classic_monokai.nvim",
+      lazy = false,
+      priority = 1000,
+    }
+<
+
+==============================================================================
+4. Usage/Configuration                                  *classic_monokai-usage*
+
+BASIC USAGE ~
+
+>lua
+    vim.opt.background = "dark" -- default to dark or light style
+    
+    local opts = {...} -- options should be setted through a setup call:
+    require("classic_monokai").setup(opts) -- ...and then load the theme:
+    require("classic_monokai").load()
+    
+    -- As an alternative, pass the options directly into load and it will run setup
+    -- the first time it is executed:
+    require("classic_monokai").load(opts)
+<
+
+>vim
+    :set background=dark
+    :colorscheme classic_monokai
+<
+
+TOGGLE FUNCTION ~
+
+The plugin provides a toggle function to change the dark/light styles:
+
+>lua
+    require("classic_monokai").toggle()
+<
+
+>vim
+    :MonokaiToggleLight
+<
+
+CONFIGURATION DETAILS ~
+
+Set the configuration BEFORE loading the theme.
+
+SPEC: ~
+
+>lua
+    {
+      "khoido2003/classic_monokai.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {
+        dark_style_background = "default", -- default | dark | transparent | #RRGGBB
+        light_style_background = "default", -- default | dark | transparent | #RRGGBB
+        markdown_header_marks = true,
+        -- hl_styles = { comments = { italic = false } },
+        terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+      },
+      config = function(_, opts)
+        vim.opt.cursorline = true -- Highlight line at the cursor position
+        vim.o.background = "dark" -- Default to dark theme
+    
+        require("classic_monokai").load(opts)
+      end,
+    }
+<
+
+==============================================================================
+5. Colors and Highlights                              *classic_monokai-colors*
+
+Dark Style Colors:
+  Yellow     #ffff87
+  Purple     #af87ff
+  Green      #a4e400
+  Blue       #62d8f1
+  Magenta    #fc1a70
+  Orange     #ff9700
+
+Light Style Colors:
+  Yellow     #ff8f00
+  Purple     #6054d0
+  Green      #4fb000
+  Blue       #00b3e3
+  Magenta    #ff004b
+  Orange     #ff4d00
+
+ vim:tw=78:ts=8:ft=help:norl: 
