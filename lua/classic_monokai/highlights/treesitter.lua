@@ -2,11 +2,20 @@ local utils = require("classic_monokai.utils")
 
 local M = {}
 
-M.url = "https://github.com/nvim-treesitter"
+M.url = "https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights"
 -- M.url = "https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md#highlights"
 
 ---@type monokai.HighlightsFn
 function M.get(c, opts)
+  -- Helper function to apply styles
+  local function apply_style(hl, style_opts)
+    if not style_opts then return hl end
+    if style_opts.italic then hl.italic = true end
+    if style_opts.bold then hl.bold = true end
+    if style_opts.underline then hl.underline = true end
+    return hl
+  end
+
   local ret = {
     ["@annotation"] = "PreProc",
     ["@attribute"] = "PreProc", -- attribute annotations (e.g. Python decorators)
@@ -35,7 +44,7 @@ function M.get(c, opts)
     ["@function.macro"] = "Macro", -- preprocessor macros
     ["@function.method"] = "Function", -- method definitions
     ["@function.method.call"] = "Function", -- method calls
-    ["@keyword"] = { fg = c.magenta, style = opts.hl_styles.keywords }, -- keywords not fitting into specific categories
+    ["@keyword"] = apply_style({ fg = c.magenta }, opts.hl_styles.keywords), -- keywords not fitting into specific categories
     ["@keyword.conditional"] = "Conditional", -- keywords related to conditionals (e.g. `if` / `else`)
     ["@keyword.conditional.htmldjango"] = { fg = c.orange },
     ["@keyword.conditional.ternary"] = "Conditional", -- ternary operator (e.g. `?` / `:`)
@@ -100,7 +109,7 @@ function M.get(c, opts)
     ["@type.builtin"] = { fg = c.blue, italic = true }, -- built-in types
     ["@type.definition"] = "Typedef", -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
     ["@type.qualifier"] = "@keyword", -- type qualifiers (e.g. `const`)
-    ["@variable"] = { fg = c.fg, style = opts.hl_styles.variables }, -- any variable name that does not have another highlight.
+    ["@variable"] = apply_style({ fg = c.fg }, opts.hl_styles.variables), -- any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.grey_light, italic = true }, -- built-in variable names (e.g. `this`, `self`)
     ["@variable.member"] = { fg = c.fg }, -- object and struct fields
     ["@variable.parameter"] = { fg = c.orange, italic = true }, -- parameters of a function

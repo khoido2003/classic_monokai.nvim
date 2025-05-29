@@ -6,9 +6,18 @@ M.url = "https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c
 
 ---@type monokai.HighlightsFn
 function M.get(c, opts)
+  -- Helper function to apply styles
+  local function apply_style(hl, style_opts)
+    if not style_opts then return hl end
+    if style_opts.italic then hl.italic = true end
+    if style_opts.bold then hl.bold = true end
+    if style_opts.underline then hl.underline = true end
+    return hl
+  end
+
   return {
     ColorColumn = { bg = c.bg_columns }, -- used for the columns set with 'colorcolumn'
-    Comment = { fg = c.comment, style = opts.hl_styles.comments }, -- any comment
+    Comment = apply_style({ fg = c.comment }, opts.hl_styles.comments), -- any comment
     Conceal = { fg = c.grey_light }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     CurSearch = "IncSearch",
     Cursor = { fg = c.bg, bg = c.blue }, -- character under the cursor
@@ -87,10 +96,10 @@ function M.get(c, opts)
     Error = { fg = c.white, bg = c.red }, -- (preferred) any erroneous construct
     Exception = { fg = c.magenta }, --  try, catch, throw
     Float = { fg = c.purple }, -- a floating point constant: 2.3e10
-    Function = { fg = c.green, style = opts.hl_styles.functions }, -- function name (also: methods for classes)
-    Identifier = { fg = c.fg, style = opts.hl_styles.variables }, -- (preferred) any variable name
+    Function = apply_style({ fg = c.green }, opts.hl_styles.functions), -- function name (also: methods for classes)
+    Identifier = apply_style({ fg = c.fg }, opts.hl_styles.variables), -- (preferred) any variable name
     Include = { fg = c.magenta }, -- preprocessor #include
-    Keyword = { fg = c.magenta, style = opts.hl_styles.keywords }, -- any other keyword
+    Keyword = apply_style({ fg = c.magenta }, opts.hl_styles.keywords), -- any other keyword
     Label = { fg = c.yellow }, -- case, default, etc.
     Macro = { fg = c.magenta }, -- same as Define
     Operator = { fg = c.magenta }, -- "sizeof", "+", "*", etc.
