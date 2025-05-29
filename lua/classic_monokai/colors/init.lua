@@ -54,7 +54,7 @@ function M.setup(opts)
   -- Popups
   colors.bg_popup = is_light and colors.charcoal_medium or colors.grey_darker
   colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
-  colors.bg_menusel = utils.darken(colors.fg_gutter, 0.8)
+  colors.bg_menusel = utils.darken(colors.fg_gutter, 0.4)
 
   -- For lsp floats messages, git, diffs, etc.
   colors.error = colors.red
