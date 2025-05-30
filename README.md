@@ -55,12 +55,12 @@ require("classic_monokai").setup({
 ### Dark Theme (Classic Monokai Colors)
 | Color   | Hex     | Used For |
 |---------|---------|----------|
-| Yellow  | #ffff87 | Strings |
-| Purple  | #af87ff | Constants |
-| Green   | #a4e400 | Functions |
-| Blue    | #62d8f1 | Types |
-| Magenta | #fc1a70 | Keywords |
-| Orange  | #ff9700 | Parameters |
+| Yellow  | #e6db74 | Strings |
+| Purple  | #ae81ff | Constants |
+| Green   | #a6e22e | Functions |
+| Blue    | #66d9ef | Types |
+| Magenta | #f92672 | Keywords |
+| Orange  | #fd971f | Parameters |
 
 ### Light Theme
 | Color   | Hex     | Used For |
