@@ -1,3 +1,6 @@
+-- Only for development purposes.
+-- Sets up autocommands to reload theme on file changes.
+
 local M = {
   autocmds = true,
   module = "classic_monokai",
