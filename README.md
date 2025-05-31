@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/0.png" alt="Classic Monokai Color Palette" width="600"/>
+</p>
+
 # 🎨 Classic Monokai
 
 > A Neovim colorscheme that brings back the beloved Monokai experience from Sublime Text.
