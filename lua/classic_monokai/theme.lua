@@ -32,7 +32,7 @@ function M.setup(opts)
 
   -- Clear highlights only when switching the theme or toggling dark/light mode
   if vim.g.colors_name then
-    vim.cmd("hi monokai")
+    vim.cmd("hi clear")
   end
 
   vim.o.termguicolors = true

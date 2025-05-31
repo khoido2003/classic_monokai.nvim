@@ -1,5 +1,5 @@
 if vim.g.colors_name then
-  vim.cmd("hi monokai")
+  vim.cmd("hi clear")
 end
 
 vim.g.colors_name = "classic-monokai"
