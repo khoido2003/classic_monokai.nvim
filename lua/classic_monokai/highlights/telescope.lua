@@ -3,14 +3,14 @@ local M = {}
 M.url = "https://github.com/nvim-telescope/telescope.nvim"
 
 ---@type monokai.HighlightsFn
-function M.get(c, opts)
-  -- stylua: ignore
+function M.get(c)
   return {
-    TelescopeBorder         = { fg = c.charcoal_light or c.grey_dark, bg = c.bg_float or c.bg_dark or c.bg },
-    TelescopeNormal         = { fg = c.fg, bg = c.bg_float or c.bg_dark or c.bg },
-    TelescopePromptBorder   = { fg = c.orange, bg = c.bg_float or c.bg_dark or c.bg },
-    TelescopePromptTitle    = { fg = c.orange, bg = c.bg_float or c.bg_dark or c.bg },
-    TelescopeResultsComment = { fg = c.grey_medium or c.comment },
+    TelescopeBorder = "FloatBorder",
+    TelescopeNormal = { fg = c.grey_light, bg = c.bg_float },
+    TelescopePreviewLine = { bg = c.bg_statusline },
+    TelescopePromptPrefix = { fg = c.blue_alt },
+    TelescopeSelection = { fg = c.fg, bg = c.bg_statusline },
+    TelescopeSelectionCaret = { fg = c.magenta, bg = c.bg_statusline },
   }
 end
 
