@@ -10,14 +10,13 @@ the classic Sublime Text Monokai look while adding modern Neovim features.
 ================================================================================
 QUICK START                                          *classic-monokai-quickstart*
 
-Using lazy.nvim:
+Install with lazy.nvim:
 >
     {
       "khoido2003/classic_monokai.nvim",
       lazy = false,
       priority = 1000,
       config = function()
-        -- Default configuration
         require("classic_monokai").setup()
         vim.cmd.colorscheme("classic-monokai")
       end
@@ -25,71 +24,84 @@ Using lazy.nvim:
 <
 
 ================================================================================
+HOW IT WORKS                                            *classic-monokai-flow*
+
+- Loads a classic Monokai color palette and applies it to all UI and syntax.
+- Supports both dark and light modes (toggle with :MonokaiToggleLight).
+- Integrates with many popular plugins (see below).
+- Modular: plugin highlights are in their own files for easy extension.
+- User config is merged with defaults, then all highlights are generated and applied.
+
+================================================================================
 CONFIGURATION                                        *classic-monokai-config*
 
-Basic configuration with common options:
+Basic configuration:
 >
     require("classic_monokai").setup({
-      -- Choose theme style
       style = "dark", -- or "light"
-
-      -- Style options for syntax elements
       hl_styles = {
         comments = { italic = true },
         keywords = { italic = true },
-        functions = { italic = false },
-        variables = { italic = false },
       },
-
-      -- Background options
       dark_style_background = "default", -- or "transparent"
-
-      -- Plugin integrations
       auto_enable_plugins = true,
-
-      -- Markdown options
       color_headers = true,
-
-      -- Window options
       dim_inactive = false,
-
-      -- Statusline options
       lualine_bold = true,
-
-      -- Terminal colors
       terminal_colors = true,
     })
+    vim.cmd.colorscheme("classic-monokai")
+<
+
+Advanced options:
+>
+    -- Remove all italics/bold
+    on_highlights = function(highlights, _)
+      for _, group in pairs(highlights) do
+        group.italic = false
+        group.bold = false
+      end
+    end
 <
 
 ================================================================================
 COMMANDS                                             *classic-monokai-commands*
 
-                                                    *:MonokaiToggleLight*
-:MonokaiToggleLight     Switch between dark and light themes
+:colorscheme classic-monokai   Apply the theme
+:MonokaiToggleLight            Switch between dark and light themes
 
 ================================================================================
 SUPPORTED PLUGINS                                    *classic-monokai-plugins*
 
-The theme provides carefully crafted highlighting for:
-
-- Treesitter syntax highlighting
-- LSP semantic tokens and diagnostics
-- Git signs and diffs
+The theme provides crafted highlighting for:
+- Treesitter
+- LSP (semantic tokens, diagnostics)
+- Git signs (gitsigns, gitgutter)
 - Telescope
-- NvimTree
+- NvimTree, Neo-tree
 - Lualine
-- And many more!
+- Trouble, Noice, Notify
+- And many more! (see highlights/ directory)
+
+================================================================================
+TROUBLESHOOTING & TIPS                              *classic-monokai-troubles*
+
+- Always call setup() before applying the colorscheme.
+- If plugin highlights are missing, check your config and plugin manager load order.
+- For transparent backgrounds, set `dark_style_background = "transparent"`.
+- To disable all italics/bold, use the `on_highlights` function (see above).
+- If colors look wrong, ensure your terminal supports true color (24-bit).
 
 ================================================================================
 COLOR PALETTE                                        *classic-monokai-colors*
 
 Dark Theme Colors:~
-  Yellow     #ffff87     Strings
-  Purple     #af87ff     Constants
-  Green      #a4e400     Functions
-  Blue       #62d8f1     Types
-  Magenta    #fc1a70     Keywords
-  Orange     #ff9700     Parameters
+  Yellow     #e6db74     Strings
+  Purple     #ae81ff     Constants
+  Green      #a6e22e     Functions
+  Blue       #66d9ef     Types
+  Magenta    #f92672     Keywords
+  Orange     #fd971f     Parameters
 
 Light Theme Colors:~
   Yellow     #c49619     Strings

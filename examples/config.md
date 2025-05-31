@@ -149,3 +149,65 @@ Important notes:
 2. Remove unused legacy options like `floats`, `sidebars`, `plugins`, etc.
 3. The `on_highlights` function will catch any remaining italic/bold styles
 4. Make sure your terminal isn't forcing italics 
+
+---
+
+## Selective Plugin Integration
+
+```lua
+require("classic_monokai").setup({
+  plugins = {
+    telescope = true,      -- enable Telescope integration
+    treesitter = true,     -- enable Treesitter integration
+    cmp = false,           -- disable nvim-cmp integration
+    nvimtree = true,       -- enable NvimTree integration
+    -- add more as needed
+  },
+})
+vim.cmd.colorscheme("classic-monokai")
+```
+
+## Customizing Colors with `on_colors`
+
+```lua
+require("classic_monokai").setup({
+  on_colors = function(colors)
+    colors.bg = "#22212c"         -- custom background
+    colors.green = "#b8cc52"      -- custom green
+    -- customize more palette colors as needed
+  end,
+})
+vim.cmd.colorscheme("classic-monokai")
+```
+
+## Using the Theme Toggle Command in a Keymap
+
+```lua
+vim.keymap.set("n", "<leader>mt", ":MonokaiToggleLight<CR>", { desc = "Toggle Monokai Light/Dark" })
+```
+
+## Transparent Backgrounds and Floating Windows
+
+```lua
+require("classic_monokai").setup({
+  dark_style_background = "transparent",
+  hl_styles = {
+    floats = "transparent", -- make floating windows transparent
+  },
+})
+vim.cmd.colorscheme("classic-monokai")
+```
+
+## Customizing Diagnostic Colors
+
+```lua
+require("classic_monokai").setup({
+  on_highlights = function(highlights, colors)
+    highlights.DiagnosticError = { fg = "#ff5555" }
+    highlights.DiagnosticWarn = { fg = "#f1fa8c" }
+    highlights.DiagnosticInfo = { fg = colors.blue }
+    highlights.DiagnosticHint = { fg = colors.green }
+  end,
+})
+vim.cmd.colorscheme("classic-monokai")
+``` 
