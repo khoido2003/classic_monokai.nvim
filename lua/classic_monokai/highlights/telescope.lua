@@ -11,6 +11,7 @@ function M.get(c)
     TelescopePromptPrefix = { fg = c.blue_alt },
     TelescopeSelection = { fg = c.fg, bg = c.bg_statusline },
     TelescopeSelectionCaret = { fg = c.magenta, bg = c.bg_statusline },
+    TelescopePromptCounter = { fg = c.grey_light, bg = c.bg_float, bold = true },
   }
 end
 
