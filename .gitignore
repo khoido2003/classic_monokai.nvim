@@ -17,7 +17,11 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+*.swo
+*.swn
 *~
+*.bak
+*.tmp
 
 # Test files
 tests/
@@ -30,3 +34,18 @@ misc/
 # Local development
 .env
 .env.local
+
+# Cache and build folders
+.cache/
+dist/
+build/
+
+# Node/npm artifacts
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python artifacts
+venv/
+__pycache__/
+

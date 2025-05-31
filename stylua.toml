@@ -1,6 +1,28 @@
+# StyLua configuration for classic_monokai.nvim
+# Enforces consistent Lua code style for contributors
+
+# Indentation
 indent_type = "Spaces"
 indent_width = 2
+
+# Line width
 column_width = 100
+
+# Line endings
 line_endings = "Unix"
+
+# Quotes
 quote_style = "AutoPreferDouble"
+
+# Parentheses
 call_parentheses = "None"
+no_call_parentheses = false
+
+# Trailing commas
+trailing_comma = "Always"
+
+# Include/exclude patterns
+include = ["lua/**/*.lua", "examples/**/*.lua"]
+exclude = ["doc/**", "tests/**", "*.spec.lua", "*.test.lua"]
+
+# Note: Please run StyLua before submitting PRs to keep code style consistent.
