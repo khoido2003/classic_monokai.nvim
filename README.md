@@ -78,16 +78,16 @@ require("classic_monokai").setup({
 <summary>Dark Theme</summary>
 
 
-![Dark Theme](screenshots/1.png)
-![Dark Theme](screenshots/2.png)
-![Dark Theme](screenshots/3.png)
+![Dark Theme](images/1.png)
+![Dark Theme](images/2.png)
+![Dark Theme](images/3.png)
 
 </details>
 
 <details>
 <summary>Light Theme</summary>
 
-![Light Theme](screenshots/4.png)
+![Light Theme](images/4.png)
 
 </details>
 
