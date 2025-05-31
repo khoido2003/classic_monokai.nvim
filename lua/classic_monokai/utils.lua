@@ -7,8 +7,8 @@ M.me = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h")
 ------------
 
 -- Default values
-M.bg = "#2b2b2b" -- charcoal_medium
-M.fg = "#ffffff" -- white
+M.bg = "#272822" -- charcoal_medium
+M.fg = "#f8f8f2" -- white
 M.brightness = 0.3
 
 ---@param color string
