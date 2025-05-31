@@ -24,8 +24,8 @@ local M = {
   white = "#ffffff",
 
   bg = "#ffffff",
-  bg_dark = "#e1e1e1",
-  bg_darker = "#d0d0d0",
+  bg_dark = "#f3f3f3", -- derived from bg, slightly darker for subtle contrast
+  bg_darker = "#e9e9e9", -- derived from bg, even darker but still light for readability
   comment = "#7f7f7f",
   fg = "#333333",
   fg_dark = "#0e0e0e",
