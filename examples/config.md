@@ -67,38 +67,51 @@ vim.cmd.colorscheme("classic-monokai")
 
 ```lua
 require("classic_monokai").setup({
-  -- Theme style ("dark" or "light")
-  style = "dark",
-  
-  -- Background style ("default" or "transparent")
-  dark_style_background = "default",
-  
-  -- Highlighting style options
+  -- Theme style: choose "dark" for classic Monokai or "light" for light mode
+  style = "dark", -- "dark" | "light"
+
+  -- Background style for dark mode: "default" (classic), "dark" (darker), "transparent", or a hex color (e.g. "#1a1a1a")
+  dark_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+  -- Background style for light mode: "default" (classic), "dark" (darker), "transparent", or a hex color
+  light_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+
   hl_styles = {
     -- Enable/disable italic for comments
-    comments = { italic = true },
+    comments = { italic = true }, -- true | false
     -- Enable/disable italic for keywords
-    keywords = { italic = true },
+    keywords = { italic = true }, -- true | false
     -- Enable/disable italic for functions
-    functions = { italic = false },
+    functions = { italic = false }, -- true | false
     -- Enable/disable italic for variables
-    variables = { italic = false },
+    variables = { italic = false }, -- true | false
+    -- Background style for floating windows: "default", "dark", "transparent", or hex color
+    floats = "dark", -- "default" | "dark" | "transparent" | "#RRGGBB"
+    -- Background style for sidebars (nvim-tree, etc.): "default", "dark", "transparent", or hex color
+    sidebars = "dark", -- "default" | "dark" | "transparent" | "#RRGGBB"
   },
-  
-  -- Enable plugin integrations by default
-  auto_enable_plugins = true,
-  
-  -- Enable rainbow headers in markdown files
-  color_headers = true,
-  
-  -- Dim inactive windows
-  dim_inactive = false,
-  
-  -- Use bold font in lualine
-  lualine_bold = true,
-  
-  -- Set terminal colors
-  terminal_colors = true,
+
+  -- Automatically enable plugin integrations (set to false to manually control plugins)
+  auto_enable_plugins = true, -- true | false
+
+  -- Enable colored headers in markdown files
+  color_headers = true, -- true | false
+
+  -- Dim inactive windows for better focus
+  dim_inactive = false, -- true | false
+
+  -- Use bold font in lualine section headers
+  lualine_bold = true, -- true | false
+  -- Lualine background style: "default" (follows theme), "dark", or "light"
+  lualine_style = "default", -- "default" | "dark" | "light"
+
+  -- Highlight '#' in markdown headers
+  markdown_header_marks = false, -- true | false
+
+  -- Set terminal colors: true to enable, false to disable, or provide a table/function for custom colors
+  terminal_colors = true, -- true | false | table | function
+
+  -- Enable theme caching for better performance
+  cache = true, -- true | false
 })
 ```
 
@@ -210,4 +223,66 @@ require("classic_monokai").setup({
   end,
 })
 vim.cmd.colorscheme("classic-monokai")
-``` 
+```
+
+## Default Theme
+
+```lua
+M.defaults = {
+  -- Background style for dark mode: "default" (classic), "dark" (darker), "transparent", or a hex color (e.g. "#1a1a1a")
+  dark_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+
+  -- Background style for light mode: "default" (classic), "dark" (darker), "transparent", or a hex color
+  light_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+
+  hl_styles = {
+    -- Custom styles for highlight groups (see :help nvim_set_hl for keys)
+    comments = { italic = true },    -- true | false
+    keywords = { italic = false },   -- true | false
+    functions = {},                  -- e.g. { italic = true, bold = true }
+    variables = {},                  -- e.g. { italic = false }
+    -- Background style for floating windows: "default", "dark", "transparent", or hex color
+    floats = "default",              -- "default" | "dark" | "transparent" | "#RRGGBB"
+    -- Background style for sidebars (nvim-tree, etc.): "default", "dark", "transparent", or hex color
+    sidebars = "default",            -- "default" | "dark" | "transparent" | "#RRGGBB"
+  },
+
+  color_headers = false,             -- true | false: Enable colored headers in markdown
+  dim_inactive = false,              -- true | false: Dim inactive windows
+  lualine_bold = true,               -- true | false: Lualine section headers bold
+  lualine_style = "default",         -- "default" | "dark" | "light": Lualine background style
+  markdown_header_marks = false,     -- true | false: Highlight '#' in markdown headers
+
+  -- Terminal colors: true to enable, false to disable, or a table/function for custom colors
+  terminal_colors = true,            -- true | false | table | function
+
+  -- Override palette colors
+  -- Example:
+  -- on_colors = function(colors)
+  --   colors.bg = "#22212c"
+  -- end,
+  on_colors = function(colors) end,
+
+  -- Override highlight groups
+  -- Example:
+  -- on_highlights = function(highlights, colors)
+  --   highlights.Normal = { fg = colors.fg, bg = colors.bg }
+  -- end,
+  on_highlights = function(highlights, colors) end,
+
+  cache = true,                      -- true | false: Enable theme caching for performance
+
+  auto_enable_plugins = true,        -- true | false: Auto-enable supported plugin highlights
+
+  -- Manually enable/disable plugin integrations by name
+  -- Example:
+  -- plugins = {
+  --   ["telescope.nvim"] = true,
+  --   ["nvim-tree.lua"] = false,
+  --   all = false, -- disable all plugins by default
+  -- }
+  plugins = {
+    all = package.loaded.lazy == nil,
+  },
+} 
+```
