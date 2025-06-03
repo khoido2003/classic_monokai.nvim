@@ -36,10 +36,10 @@ local M = {
   delimiter_cyan = "#66cccc",
   delimiter_purple = "#b294bb",
   delimiter_pink = "#f858a2",
-  delimiter_blue = "#6699cc",
+  delimiter_blue = "#99ccff",
 
   -- Extra colors
-  blue_alt = "#819aff", -- terminal.ansiBrightBlue
+  blue_alt = "#4ec9df", -- terminal.ansiBrightBlue
   green_alt = "#a6e22e", -- tokenColors entity.name.class (same as green)
   green_light = "#a6e22e", -- tokenColors entity.name.class (same as green)
   red = "#f92672", -- terminal.ansiBrightRed
