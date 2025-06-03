@@ -23,7 +23,7 @@ local M = {
 
   bg = "#272822", -- editor.background
   bg_dark = "#22231e", -- just a bit darker
-  bg_darker = "#1a1b17", -- a bit more, but still related
+  bg_darker = "#1e1f1a",
   comment = "#88846f", -- tokenColors comment
   fg = "#f8f8f2", -- editor.foreground
   fg_dark = "#ccccc7", -- tab.inactiveForeground
