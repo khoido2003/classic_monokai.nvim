@@ -30,6 +30,14 @@ local M = {
   fg_gutter = "#c9c9c9",
   terminal_black = "#bfbfbf",
 
+  delimiter_orange = "#ff7733",
+  delimiter_yellow = "#e0b000",
+  delimiter_green = "#33aa77",
+  delimiter_cyan = "#00aaaa",
+  delimiter_purple = "#9b59b6",
+  delimiter_pink = "#f75ca8",
+  delimiter_blue = "#3399ff",
+
   -- Extra colors
   blue_alt = "#0087ff",
   green_alt = "#4fb000",
