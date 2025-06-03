@@ -22,8 +22,8 @@ local M = {
   white = "#f8f8f2",
 
   bg = "#272822",
-  bg_dark = "#262720",
-  bg_darker = "#242521",
+  bg_dark = "#242521",
+  bg_darker = "#20211c",
   comment = "#75715e",
   fg = "#f8f8f2",
   fg_dark = "#ccccc7",
