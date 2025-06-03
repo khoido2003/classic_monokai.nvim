@@ -1,34 +1,34 @@
 ---@class Palette
 local M = {
-  blue = "#66d9ef", -- terminal.ansiBrightCyan
-  green = "#a6e22e", -- tokenColors entity.name.class
-  magenta = "#f92672", -- terminal.ansiBrightRed
-  orange = "#fd971f", -- tokenColors variable.parameter
-  purple = "#ae81ff", -- tokenColors constant.numeric
-  yellow = "#e6db74", -- tokenColors string
+  blue = "#66d9ef",
+  green = "#a6e22e",
+  magenta = "#f92672",
+  orange = "#fd971f",
+  purple = "#ae81ff",
+  yellow = "#e6db74",
 
-  charcoal = "#272822", -- editor.background
-  charcoal_light = "#414339", -- dropdown.background
-  charcoal_medium = "#353630", -- Lighter than charcoal, more distinct
-  grey = "#75715e", -- list.activeSelectionBackground
-  grey_dark = "#464741", -- editorWhitespace.foreground
-  grey_darker = "#32332e", -- Darker, more contrast with charcoal_light
-  grey_darker_alt = "#2f302b", -- Distinct shade from grey_darker
-  grey_light = "#ccccc7", -- tab.inactiveForeground
-  grey_lighter = "#e3e3dd", -- terminal.ansiWhite
-  grey_medium = "#88846f", -- tokenColors comment
+  charcoal = "#2b2c26",
+  charcoal_light = "#414339",
+  charcoal_medium = "#353630",
+  grey = "#75715e",
+  grey_dark = "#4d4e45",
+  grey_darker = "#3a3b36",
+  grey_darker_alt = "#2e2f2b",
+  grey_light = "#c8c8b8",
+  grey_lighter = "#e2e2d2",
+  grey_medium = "#676755",
 
-  black = "#333333", -- terminal.ansiBlack
-  white = "#f8f8f2", -- editor.foreground
+  black = "#333333",
+  white = "#f8f8f2",
 
-  bg = "#272822", -- editor.background
+  bg = "#272822",
   bg_dark = "#23241f",
-  bg_darker = "#242521",   -- Noticeably darker but still in the same hue family  
-  comment = "#88846f",
-  fg = "#f8f8f2", -- editor.foreground
-  fg_dark = "#ccccc7", -- tab.inactiveForeground
-  fg_gutter = "#90908a", -- editorLineNumber.foreground
-  terminal_black = "#333333", -- terminal.ansiBlack
+  bg_darker = "#242521",
+  comment = "#75715e",
+  fg = "#f8f8f2",
+  fg_dark = "#ccccc7",
+  fg_gutter = "#90908a",
+  terminal_black = "#333333",
 
   delimiter_orange = "#ff9f43",
   delimiter_yellow = "#f0d264",
@@ -38,16 +38,15 @@ local M = {
   delimiter_pink = "#f858a2",
   delimiter_blue = "#99ccff",
 
-  -- Extra colors
-  blue_alt = "#4ec9df", -- terminal.ansiBrightBlue
-  green_alt = "#a6e22e", -- tokenColors entity.name.class (same as green)
-  green_light = "#a6e22e", -- tokenColors entity.name.class (same as green)
-  red = "#f92672", -- terminal.ansiBrightRed
-  yellow_alt = "#e2e22e", -- terminal.ansiBrightYellow
+  blue_alt = "#4ec9df",
+  green_alt = "#a6e22e",
+  green_light = "#a6e22e",
+  red = "#f92672",
+  yellow_alt = "#e2e22e",
   git = {
-    add = "#a6e22e", -- tokenColors markup.inserted
-    change = "#e6db74", -- tokenColors markup.changed
-    delete = "#f92672", -- tokenColors markup.deleted
+    add = "#a6e22e",
+    change = "#e6db74",
+    delete = "#f92672",
   },
 }
 
