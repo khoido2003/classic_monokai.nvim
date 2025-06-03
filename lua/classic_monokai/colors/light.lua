@@ -32,6 +32,14 @@ local M = {
   fg_gutter = "#c9c9c9",
   terminal_black = "#bfbfbf",
 
+  delimiter_orange = "#d35400",  -- deep orange
+  delimiter_yellow = "#c2a000",  -- warm mustard
+  delimiter_green  = "#558000",  -- olive green
+  delimiter_cyan   = "#008b8b",  -- dark cyan
+  delimiter_purple = "#7e57c2",  -- muted purple
+  delimiter_pink   = "#c2185b",  -- deep rose
+  delimiter_blue   = "#1976d2",  -- strong blue
+
   -- Extra colors
   blue_alt = "#4499bf",    -- Updated to match main blue
   green_alt = "#7da900",   -- Updated to match main green

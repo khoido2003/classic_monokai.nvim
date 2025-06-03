@@ -30,6 +30,14 @@ local M = {
   fg_gutter = "#90908a", -- editorLineNumber.foreground
   terminal_black = "#333333", -- terminal.ansiBlack
 
+  delimiter_orange = "#ff9f43",
+  delimiter_yellow = "#f0d264",
+  delimiter_green = "#99cc66",
+  delimiter_cyan = "#66cccc",
+  delimiter_purple = "#b294bb",
+  delimiter_pink = "#f858a2",
+  delimiter_blue = "#6699cc",
+
   -- Extra colors
   blue_alt = "#819aff", -- terminal.ansiBrightBlue
   green_alt = "#a6e22e", -- tokenColors entity.name.class (same as green)

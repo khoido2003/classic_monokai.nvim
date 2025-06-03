@@ -79,13 +79,15 @@ function M.setup(opts)
 
   -- Rainbow colors (for color_headers, rainbow delimiters and other plugins)
   colors.rainbow = {
-    colors.fg,
-    colors.yellow,
-    colors.orange,
-    colors.red,
-    colors.purple,
-    colors.blue,
+    colors.delimiter_pink,    -- First level (Red)
+    colors.delimiter_orange,  -- Second level (Orange)
+    colors.delimiter_yellow,  -- Third level (Yellow)
+    colors.delimiter_green,   -- Fourth level (Green)
+    colors.delimiter_blue,    -- Fifth level (Blue)
+    colors.delimiter_purple,  -- Sixth level (Violet)
+    colors.delimiter_cyan,    -- Seventh level (Cyan)
   }
+  
   colors.rainbow_bg = {}
   for i = 1, #colors.rainbow do
     colors.rainbow_bg[i] = utils.darken(colors.rainbow[i], 0.07)
