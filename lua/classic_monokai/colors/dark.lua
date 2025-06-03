@@ -24,6 +24,7 @@ local M = {
   bg = "#272822", -- editor.background
   bg_dark = "#2c2d27",     -- Slightly darker, warm charcoal
   bg_darker = "#242521",   -- Noticeably darker but still in the same hue family  
+  comment = "#88846f",
   fg = "#f8f8f2", -- editor.foreground
   fg_dark = "#ccccc7", -- tab.inactiveForeground
   fg_gutter = "#90908a", -- editorLineNumber.foreground
