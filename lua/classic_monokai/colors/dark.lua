@@ -22,7 +22,7 @@ local M = {
   white = "#f8f8f2", -- editor.foreground
 
   bg = "#272822", -- editor.background
-  bg_dark = "#2c2d27",     -- Slightly darker, warm charcoal
+  bg_dark = "#23241f",
   bg_darker = "#242521",   -- Noticeably darker but still in the same hue family  
   comment = "#88846f",
   fg = "#f8f8f2", -- editor.foreground
