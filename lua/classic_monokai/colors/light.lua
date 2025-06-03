@@ -5,7 +5,7 @@ local M = {
   magenta = "#f92672",
   orange = "#fd971f",
   purple = "#9d65ff",
-  yellow = "#e6db74",
+  yellow = "#d4b840", -- Darkened for better contrast
 
   charcoal = "#e3e3e3",
   charcoal_light = "#d8d8d8",
@@ -21,12 +21,12 @@ local M = {
   black = "#000001",
   white = "#ffffff",
 
-  bg = "#fdf6e3",
+  bg = "#e5ddca", -- Slightly darker background
   bg_dark = "#f2ebd9",
   bg_darker = "#e5ddca",
 
   comment = "#75715e",
-  fg = "#333333",
+  fg = "#0e0e0e", -- Darker foreground for better readability
   fg_dark = "#0e0e0e",
   fg_gutter = "#c9c9c9",
   terminal_black = "#bfbfbf",
