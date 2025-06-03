@@ -22,9 +22,8 @@ local M = {
   white = "#f8f8f2", -- editor.foreground
 
   bg = "#272822", -- editor.background
-  bg_dark = "#22231e", -- just a bit darker
-  bg_darker = "#1e1f1a",
-  comment = "#88846f", -- tokenColors comment
+  bg_dark = "#2c2d27",     -- Slightly darker, warm charcoal
+  bg_darker = "#242521",   -- Noticeably darker but still in the same hue family  
   fg = "#f8f8f2", -- editor.foreground
   fg_dark = "#ccccc7", -- tab.inactiveForeground
   fg_gutter = "#90908a", -- editorLineNumber.foreground
