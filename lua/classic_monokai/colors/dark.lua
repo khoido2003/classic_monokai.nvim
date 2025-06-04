@@ -27,7 +27,7 @@ local M = {
   comment = "#75715e",
   fg = "#f8f8f2",
   fg_dark = "#ccccc7",
-  fg_gutter = "#90908a",
+  fg_gutter = "#3e3e3e",
   terminal_black = "#333333",
 
   delimiter_orange = "#ff9f43",
