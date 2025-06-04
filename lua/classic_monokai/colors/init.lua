@@ -32,7 +32,7 @@ function M.setup(opts)
 
   -- Sidebar and Floats
   colors.bg_sidebar = opts.hl_styles.sidebars == "transparent" and colors.none
-    or opts.hl_styles.sidebars == "dark" and colors.bg_dark
+    or opts.hl_styles.sidebars == "dark" and colors.bg_darker
     or is_light and colors.bg_statusline
     or colors.charcoal
   colors.bg_float = opts.hl_styles.floats == "transparent" and colors.none
