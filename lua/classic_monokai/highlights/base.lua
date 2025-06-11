@@ -92,7 +92,7 @@ function M.get(c, opts)
     Constant = { fg = c.purple }, -- (preferred) any constant
     Debug = { fg = c.orange }, -- debugging statements
     Define = { fg = c.magenta }, -- preprocessor #define
-    Delimiter = { fg = c.magenta }, -- character that needs attention
+    Delimiter = { fg = c.delimiter_pink }, -- character that needs attention
     Error = { fg = c.white, bg = c.red }, -- (preferred) any erroneous construct
     Exception = { fg = c.magenta }, --  try, catch, throw
     Float = { fg = c.purple }, -- a floating point constant: 2.3e10
