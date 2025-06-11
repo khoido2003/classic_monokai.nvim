@@ -54,7 +54,7 @@ function M.get(c, opts)
     NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
     Pmenu = { fg = c.fg, bg = c.bg_popup }, -- Popup/wildMenu: normal item.
     PmenuSbar = { bg = c.bg_menuselbar }, -- bg = c.grey -- Popup/WildMenu: scrollbar.
-    PmenuSel = { fg = c.magenta, bg = c.bg_menusel }, -- Popup/WildMenu: selected item.
+    PmenuSel = { fg = c.white, bg = c.grey_medium }, -- Popup/WildMenu: selected item.
     PmenuThumb = { fg = c.grey_dark, bg = c.grey }, -- Popup/WildMenu: Thumb of the scrollbar.
     Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { fg = c.blue, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
