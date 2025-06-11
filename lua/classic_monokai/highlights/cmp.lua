@@ -12,10 +12,11 @@ function M.get(c)
     CmpGhostText = { fg = c.grey_medium, bg = c.none, italic = true }, -- Experimental. hl must be defined by the user
 
     CmpItemAbbr = { fg = c.fg, bg = c.none }, -- The suggestions
-    CmpItemAbbrDeprecated = { fg = c.fg_gutter, bg = c.none, strikethrough = true }, -- Deprecated suggestions
-    CmpItemAbbrMatch = { fg = c.magenta, bg = c.none }, -- The current matches with the suggestions
-    CmpItemAbbrMatchFuzzy = { fg = c.magenta, bg = c.none }, -- Matches ahead current
+    CmpItemAbbrDeprecated = { fg = c.white, bg = c.none, strikethrough = true }, -- Deprecated suggestions
+    CmpItemAbbrMatch = { fg = c.white, bg = c.none }, -- The current matches with the suggestions
+    CmpItemAbbrMatchFuzzy = { fg = c.white, bg = c.none }, -- Matches ahead current
     CmpItemMenu = { fg = c.comment, bg = c.none }, -- The [source of the suggestion, LSP, luasnip...]
+    CmpItemKind = { fg = c.white, bg = c.grey_medium },
   }
   utils.generate_kinds(ret, "CmpItemKind%s")
   return ret
