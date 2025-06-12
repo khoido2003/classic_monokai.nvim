@@ -13,9 +13,9 @@ function M.get(c)
 
     CmpItemAbbr = { fg = c.fg, bg = c.none }, -- The suggestions
     CmpItemAbbrDeprecated = { fg = c.fg, bg = c.none, strikethrough = true }, -- Deprecated suggestions
-    CmpItemAbbrMatch = { fg = c.green_light
+    CmpItemAbbrMatch = { fg = c.fg
     , bg = c.none }, -- The current matches with the suggestions
-    CmpItemAbbrMatchFuzzy = { fg = c.green_light, bg = c.none }, -- Matches ahead current
+    CmpItemAbbrMatchFuzzy = { fg = c.fg, bg = c.none }, -- Matches ahead current
     CmpItemMenu = { fg = c.comment, bg = c.none }, -- The [source of the suggestion, LSP, luasnip...]
   }
   utils.generate_kinds(ret, "CmpItemKind%s")
