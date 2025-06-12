@@ -39,7 +39,7 @@ local M = {
   delimiter_blue = "#99ccff",
 
   blue_alt = "#4ec9df",
-  green_alt = "#8bc34a",
+  green_alt = "#7ca944",
   green_light = "#b6f55a",
   red = "#f92672",
   yellow_alt = "#e2e22e",
