@@ -16,7 +16,6 @@ function M.get(c)
     CmpItemAbbrMatch = { fg = c.white, bg = c.none }, -- The current matches with the suggestions
     CmpItemAbbrMatchFuzzy = { fg = c.white, bg = c.none }, -- Matches ahead current
     CmpItemMenu = { fg = c.comment, bg = c.none }, -- The [source of the suggestion, LSP, luasnip...]
-    CmpItemKind = { fg = c.white, bg = c.grey_medium },
   }
   utils.generate_kinds(ret, "CmpItemKind%s")
   return ret
