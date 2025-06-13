@@ -10,7 +10,7 @@
 
 I've always been in love with the original Monokai theme from Sublime Text - its vibrant colors and perfect readability made coding a true joy. This theme is my attempt to bring that same magical experience to Neovim.
 
-This colorscheme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) by [@polirritmico](https://github.com/polirritmico). His incredible work laid the foundation for this theme, and I'm deeply grateful for his contribution to the Neovim community. I've made some adjustments to bring the colors closer to the classic Sublime Text Monokai experience while keeping the modern Neovim features intact.
+This colorscheme is a fork of [monokai-nightasty.nvim](https://github.com/polirritmico/monokai-nightasty.nvim) by [@polirritmico](https://github.com/polirritmico). His incredible work laid the foundation for this theme. I've made some adjustments to bring the colors closer to the classic Sublime Text Monokai experience while keeping the modern Neovim features intact.
 
 ## ⚡️ Requirements
 
@@ -84,13 +84,16 @@ require("classic_monokai").setup({
       terminal_colors = true, -- true | false | table | function
 
       -- Enable theme caching for better performance
-      cache = true, -- true | false
+      cache = false, -- true | false
     })
     vim.cmd.colorscheme("classic-monokai")
 ```
 
-## Rainbow Delimiters
+## 🌈 Rainbow Delimiters
 The colorscheme looks better with [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim)
+
+![Dark Theme](images/1.png)
+![Light Theme](images/4.png)
 
 ## 🎨 Color Palette
 
