@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local lazygit = utils.template(
-    [[
+	local lazygit = utils.template(
+		[[
 gui:
   nerdFontsVersion: "3"
 
@@ -40,9 +40,9 @@ gui:
   authorColors:
     "*": "${magenta}"
 ]],
-    colors
-  )
-  return lazygit
+		colors
+	)
+	return lazygit
 end
 
 return M

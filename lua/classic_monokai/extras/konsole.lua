@@ -4,19 +4,19 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  ---@type ColorScheme
-  local rgb_colors = {}
-  for name, value in pairs(colors) do
-    if type(value) == "string" then
-      local color = utils.hex_to_rgb(value)
-      rgb_colors[name] = string.format("%s,%s,%s", color[1], color[2], color[3])
-    end
-  end
-  rgb_colors["_style_name"] = colors["_style_name"]
-  rgb_colors["_upstream_url"] = colors["_upstream_url"]
+	---@type ColorScheme
+	local rgb_colors = {}
+	for name, value in pairs(colors) do
+		if type(value) == "string" then
+			local color = utils.hex_to_rgb(value)
+			rgb_colors[name] = string.format("%s,%s,%s", color[1], color[2], color[3])
+		end
+	end
+	rgb_colors["_style_name"] = colors["_style_name"]
+	rgb_colors["_upstream_url"] = colors["_upstream_url"]
 
-  local konsole = utils.template(
-    [=[
+	local konsole = utils.template(
+		[=[
 ;; name: ${_style_name}
 ;; license: MIT
 ;; author: Eduardo Bray
@@ -124,10 +124,10 @@ Wallpaper=
 WallpaperFlipType=NoFlip
 WallpaperOpacity=1
 ]=],
-    rgb_colors
-  )
+		rgb_colors
+	)
 
-  return konsole
+	return konsole
 end
 
 return M

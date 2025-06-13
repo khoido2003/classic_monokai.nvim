@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local tmux = utils.template(
-    [[
+	local tmux = utils.template(
+		[[
 ## name: ${_style_name}
 ## license: MIT
 ## author: Eduardo Bray
@@ -65,15 +65,15 @@ tm_win_act_sep_end="#[fg=$tm_bg,bg=$tm_bg_highlight,nobold]"
 setw -g window-status-format "$tm_win_inact_sep$tm_win_inactive$tm_win_inact_sep"
 setw -g window-status-current-format "$tm_win_act_sep$tm_win_active$tm_win_act_sep_end"
 ]],
-    colors
-  )
-  return tmux
+		colors
+	)
+	return tmux
 end
 
 --- @param colors ColorScheme
 function M.rounded(colors)
-  local tmux = utils.template(
-    [[
+	local tmux = utils.template(
+		[[
 ## name: ${_style_name} Rounded
 ## license: MIT
 ## author: Eduardo Bray
@@ -133,9 +133,9 @@ tm_win_act_sep_end="#[fg=$tm_bg,bg=$tm_bg_highlight,nobold]"
 setw -g window-status-format "$tm_win_inact_sep$tm_win_inactive$tm_win_inact_sep"
 setw -g window-status-current-format "$tm_win_act_sep$tm_win_active$tm_win_act_sep_end"
 ]],
-    colors
-  )
-  return tmux
+		colors
+	)
+	return tmux
 end
 
 return M

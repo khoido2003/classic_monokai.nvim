@@ -1,28 +1,28 @@
 local utils = require("classic_monokai.utils")
 
 local function hex2rgb(key, value)
-  local hex = value:gsub("#", "")
+	local hex = value:gsub("#", "")
 
-  local r = tonumber(hex:sub(1, 2), 16)
-  local g = tonumber(hex:sub(3, 4), 16)
-  local b = tonumber(hex:sub(5, 6), 16)
+	local r = tonumber(hex:sub(1, 2), 16)
+	local g = tonumber(hex:sub(3, 4), 16)
+	local b = tonumber(hex:sub(5, 6), 16)
 
-  return string.format("Rgb(%s,%s,%s), // %s %s", r, g, b, key, value)
+	return string.format("Rgb(%s,%s,%s), // %s %s", r, g, b, key, value)
 end
 
 local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local gitui_colors = {}
-  for k, v in pairs(colors) do
-    if type(v) == "string" then
-      gitui_colors[k] = hex2rgb(k, v)
-    end
-  end
+	local gitui_colors = {}
+	for k, v in pairs(colors) do
+		if type(v) == "string" then
+			gitui_colors[k] = hex2rgb(k, v)
+		end
+	end
 
-  local gitui = utils.template(
-    [[
+	local gitui = utils.template(
+		[[
 (
   selected_tab: ${magenta}
   command_fg: ${comment}
@@ -47,10 +47,10 @@ function M.generate(colors)
   branch_fg: ${yellow}
 )
 ]],
-    gitui_colors
-  )
+		gitui_colors
+	)
 
-  return gitui
+	return gitui
 end
 
 return M

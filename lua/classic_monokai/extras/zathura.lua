@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local zathura = utils.template(
-    [[
+	local zathura = utils.template(
+		[[
 ## name: ${_style_name}
 ## license: MIT
 ## author: Eduardo Bray
@@ -45,9 +45,9 @@ set render-loading-bg "${fg}"
 set recolor-lightcolor "${bg}"
 set recolor-darkcolor "${fg}"
 ]],
-    colors
-  )
-  return zathura
+		colors
+	)
+	return zathura
 end
 
 return M

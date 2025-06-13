@@ -1,2 +1,3 @@
 -- Entry point for classic_monokai.nvim
-return require("classic_monokai") 
+return require("classic_monokai")
+

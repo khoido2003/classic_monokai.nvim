@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local kitty = utils.template(
-    [[
+	local kitty = utils.template(
+		[[
 # vim:ft=kitty
 
 ## name: ${_style_name}
@@ -57,9 +57,9 @@ color15 ${fg}
 color16 ${orange}
 color17 ${red}
 ]],
-    colors
-  )
-  return kitty
+		colors
+	)
+	return kitty
 end
 
 return M

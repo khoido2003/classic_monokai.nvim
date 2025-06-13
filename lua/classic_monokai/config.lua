@@ -27,45 +27,46 @@ M.version = "3206b571"
 ---@field on_highlights fun(hl:monokai.Highlights, c:ColorScheme) Function to override highlight groups
 
 M.defaults = {
-  style = vim.o.background,
-  dark_style_background = "default",
-  dark_style_plugins = {},
-  dark_style_default_plugins = {},
-  dark_style_dark_plugins = {},
-  dark_style_transparent_plugins = {},
-  light_style_background = "default",
-  light_style_plugins = {},
-  light_style_default_plugins = {},
-  light_style_dark_plugins = {},
-  light_style_transparent_plugins = {},
-  plugins = { all = true },
-  hl_styles = {
-    comments = { italic = false },
-    keywords = { italic = false },
-    functions = { italic = false },
-    variables = { italic = false },
-    floats = "default",
-    sidebars = "default",
-  },
-  dim_inactive = false,
-  lualine_bold = true,
-  lualine_style = "default",
-  markdown_header_marks = false,
-  terminal_colors = true,
-  cache = false,
-  auto_enable_plugins = true,
-  color_headers = true,
-  on_highlights = function(hl, c) end,
+	style = vim.o.background,
+	dark_style_background = "default",
+	dark_style_plugins = {},
+	dark_style_default_plugins = {},
+	dark_style_dark_plugins = {},
+	dark_style_transparent_plugins = {},
+	light_style_background = "default",
+	light_style_plugins = {},
+	light_style_default_plugins = {},
+	light_style_dark_plugins = {},
+	light_style_transparent_plugins = {},
+	plugins = { all = true },
+	hl_styles = {
+		comments = { italic = true },
+		keywords = { italic = false },
+		functions = { italic = false },
+		variables = { italic = false },
+		floats = "default",
+		sidebars = "default",
+	},
+	dim_inactive = false,
+	lualine_bold = true,
+	lualine_style = "default",
+	markdown_header_marks = false,
+	terminal_colors = false,
+	cache = false,
+	auto_enable_plugins = true,
+	color_headers = true,
+	on_highlights = function(hl, c) end,
 }
 
+-- kfkf
 ---@param opts? monokai.Config|monokai.UserConfig
 function M.setup(opts)
-  M.options = vim.tbl_deep_extend("force", M.defaults, opts or {})
+	M.options = vim.tbl_deep_extend("force", M.defaults, opts or {})
 end
 
 ---@param opts? monokai.Config|monokai.UserConfig
 function M.extend(opts)
-  return vim.tbl_deep_extend("force", M.options or M.defaults, opts or {})
+	return vim.tbl_deep_extend("force", M.options or M.defaults, opts or {})
 end
 
 return M
