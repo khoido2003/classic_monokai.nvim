@@ -40,23 +40,61 @@ Want to customize? Here's an example with common options:
 
 ```lua
 require("classic_monokai").setup({
-  -- Choose style: "dark" or "light"
-  style = "dark",
-  
-  -- Make comments and keywords italic
-  hl_styles = {
-    comments = { italic = true },
-    keywords = { italic = true },
-  },
-  
-  -- Use transparent background
-  dark_style_background = "transparent",
-})
+      -- Theme style: choose "dark" for classic Monokai or "light" for light mode
+      style = "dark", -- "dark" | "light"
+
+      -- Background style for dark mode: "default" (classic), "dark" (darker), "transparent", or a hex color (e.g. "#1a1a1a")
+      dark_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+      -- Background style for light mode: "default" (classic), "dark" (darker), "transparent", or a hex color
+      light_style_background = "default", -- "default" | "dark" | "transparent" | "#RRGGBB"
+
+      hl_styles = {
+        -- Enable/disable italic for comments
+        comments = { italic = true }, -- true | false
+        -- Enable/disable italic for keywords
+        keywords = { italic = true }, -- true | false
+        -- Enable/disable italic for functions
+        functions = { italic = false }, -- true | false
+        -- Enable/disable italic for variables
+        variables = { italic = false }, -- true | false
+        -- Background style for floating windows: "default", "dark", "transparent", or hex color
+        floats = "dark", -- "default" | "dark" | "transparent" | "#RRGGBB"
+        -- Background style for sidebars (nvim-tree, etc.): "default", "dark", "transparent", or hex color
+        sidebars = "dark", -- "default" | "dark" | "transparent" | "#RRGGBB"
+      },
+
+      -- Automatically enable plugin integrations (set to false to manually control plugins)
+      auto_enable_plugins = true, -- true | false
+
+      -- Enable colored headers in markdown files
+      color_headers = true, -- true | false
+
+      -- Dim inactive windows for better focus
+      dim_inactive = false, -- true | false
+
+      -- Use bold font in lualine section headers
+      lualine_bold = true, -- true | false
+      -- Lualine background style: "default" (follows theme), "dark", or "light"
+      lualine_style = "default", -- "default" | "dark" | "light"
+
+      -- Highlight '#' in markdown headers
+      markdown_header_marks = false, -- true | false
+
+      -- Set terminal colors: true to enable, false to disable, or provide a table/function for custom colors
+      terminal_colors = true, -- true | false | table | function
+
+      -- Enable theme caching for better performance
+      cache = true, -- true | false
+    })
+    vim.cmd.colorscheme("classic-monokai")
 ```
+
+## Rainbow Delimiters
+The colorscheme looks better with [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim)
 
 ## 🎨 Color Palette
 
-### Dark Theme (Classic Monokai Colors)
+### Dark Theme (Classic Monokai)
 | Color   | Hex     | Used For |
 |---------|---------|----------|
 | Yellow  | #e6db74 | Strings |
@@ -66,15 +104,15 @@ require("classic_monokai").setup({
 | Magenta | #f92672 | Keywords |
 | Orange  | #fd971f | Parameters |
 
-### Light Theme
+### Light Theme (Monokai Pro Light)
 | Color   | Hex     | Used For |
 |---------|---------|----------|
-| Yellow  | #c49619 | Strings |
-| Purple  | #9d65ff | Constants |
-| Green   | #7da900 | Functions |
-| Blue    | #4499bf | Types |
-| Magenta | #f92672 | Keywords |
-| Orange  | #f37b3f | Parameters |
+| Yellow  | #cc7a0a | Strings |
+| Purple  | #7058be | Constants |
+| Green   | #269d69"| Functions |
+| Blue    | #1c8ca8 | Types |
+| Magenta | #e14775 | Keywords |
+| Orange  | #e16032 | Parameters |
 
 ## 📸 Screenshots
 
