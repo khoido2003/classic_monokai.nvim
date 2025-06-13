@@ -7,8 +7,8 @@ local M = {
   purple = "#ae81ff",
   yellow = "#e6db74",
 
-  charcoal = "#1d1e18",
-  charcoal_medium  = "#272822",
+  charcoal = "#1e1f1c",
+  charcoal_medium  = "#1f2019",
   charcoal_light   = "#312f26",
   grey = "#75715e",
   grey_dark = "#4d4e45",
@@ -27,7 +27,7 @@ local M = {
   comment = "#75715e",
   fg = "#f8f8f2",
   fg_dark = "#ccccc7",
-  fg_gutter = "#49483e",
+  fg_gutter = "#5a594d",
   terminal_black = "#333333",
 
   delimiter_orange = "#ff9f43",
