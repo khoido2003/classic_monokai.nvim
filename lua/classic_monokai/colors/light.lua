@@ -9,15 +9,15 @@ local M = {
 
 	charcoal = "#ede7e5",
 	charcoal_light = "#f5f0ef",
-	charcoal_medium = "#e0dbda",
+	charcoal_medium = "#dcd8d7",
 	grey = "#8a8989",
 	grey_dark = "#706f6f",
 	grey_darker = "#5c5b5b",
 	grey_darker_alt = "#d2cecd",
 	grey_light = "#b0afaf",
 	grey_lighter = "#2e2d2d",
-	grey_medium = "#a5a4a4",
-    
+	grey_medium = "#acabab",
+
 	black = "#2d2c2c",
 	white = "#ffffff",
 
@@ -27,7 +27,7 @@ local M = {
 	comment = "#aaa4a5",
 	fg = "#403f3f",
 	fg_dark = "#2a2929",
-	fg_gutter = "#d4cfce",
+	fg_gutter = "#c0bcbc",
 	terminal_black = "#5c5b5b",
 
 	delimiter_orange = "#ff7733",
