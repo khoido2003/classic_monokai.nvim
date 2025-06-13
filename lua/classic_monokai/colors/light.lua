@@ -14,10 +14,10 @@ local M = {
 	grey_dark = "#706f6f",
 	grey_darker = "#5c5b5b",
 	grey_darker_alt = "#d2cecd",
-	grey_light = "#a8a7a7",
+	grey_light = "#b0afaf",
 	grey_lighter = "#2e2d2d",
-	grey_medium = "#999898",
-
+	grey_medium = "#a5a4a4",
+    
 	black = "#2d2c2c",
 	white = "#ffffff",
 
