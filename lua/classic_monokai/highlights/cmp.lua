@@ -13,8 +13,8 @@ function M.get(c)
 
 		CmpItemAbbr = { fg = c.grey_lighter, bg = c.none }, -- The suggestions
 		CmpItemAbbrDeprecated = { fg = c.grey_lighter, bg = c.none, strikethrough = true }, -- Deprecated suggestions
-		CmpItemAbbrMatch = { fg = c.fg, bg = c.none, bold = true }, -- The current matches with the suggestions
-		CmpItemAbbrMatchFuzzy = { fg = c.fg, bg = c.none, bold = true }, -- Matches ahead current
+		CmpItemAbbrMatch = { fg = c.fg, bg = c.none }, -- The current matches with the suggestions
+		CmpItemAbbrMatchFuzzy = { fg = c.fg, bg = c.none }, -- Matches ahead current
 		CmpItemMenu = { fg = c.comment, bg = c.none }, -- The [source of the suggestion, LSP, luasnip...]
 	}
 	utils.generate_kinds(ret, "CmpItemKind%s")
