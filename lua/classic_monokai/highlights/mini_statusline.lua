@@ -16,7 +16,7 @@ function M.get(c, opts)
 			MiniStatuslineModeInsert = { fg = c.black, bg = c.yellow_alt, bold = bold },
 			MiniStatuslineModeVisual = { fg = c.black, bg = c.purple, bold = bold },
 			MiniStatuslineModeReplace = { fg = c.black, bg = c.red, bold = bold },
-			MiniStatuslineModeCommand = { fg = c.green, bg = c.black, bold = bold },
+			MiniStatuslineModeCommand = { fg = c.black, bg = c.orange, bold = bold },
 			MiniStatuslineModeOther = { fg = c.blue_alt, bg = c.black, bold = bold },
 
 			MiniStatuslineDevinfo = { fg = c.green, bg = c.bg_status_alt },

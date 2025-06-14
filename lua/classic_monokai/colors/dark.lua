@@ -11,14 +11,14 @@ local M = {
 	charcoal_medium = "#171814",
 	charcoal_light = "#22221f",
 	grey = "#75715e",
-	grey_dark = "#656151",
-	grey_darker = "#5e5a4b",
+	grey_dark = "#5e5a4b",
+	grey_darker = "#524f42",
 	grey_darker_alt = "#555244",
 	grey_light = "#acaa9e",
 	grey_lighter = "#bab8af",
 	grey_medium = "#696655",
 
-	black = "#333333",
+	black = "#292a24",
 	white = "#f8f8f2",
 
 	bg = "#272822",
