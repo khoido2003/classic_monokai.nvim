@@ -8,11 +8,11 @@ function M.get(c)
 		TelescopeBorder = "FloatBorder",
 		TelescopeNormal = { fg = c.grey_light, bg = c.bg_float },
 		TelescopePreviewLine = { bg = c.bg_statusline },
-		TelescopePromptPrefix = { fg = c.magenta },
+		TelescopePromptPrefix = { fg = c.yellow },
 		TelescopeSelection = { fg = c.fg, bg = c.bg_highlight_sidebar },
-		TelescopeSelectionCaret = { fg = c.magenta, bg = c.bg_statusline },
+		TelescopeSelectionCaret = { fg = c.yellow, bg = c.bg_statusline },
 		TelescopePromptCounter = { fg = c.grey_light, bg = c.bg_float, bold = true },
-		TelescopeMatching = { fg = c.magenta },
+		TelescopeMatching = { fg = c.yellow },
 	}
 end
 
