@@ -41,7 +41,7 @@ function M.setup(opts)
 	colors.fg_float = colors.fg
 
 	-- Set the background for the current line (current cursor position)
-	colors.bg_highlight = is_light and colors.charcoal_light or utils.darken(colors.bg, 0.9, colors.fg)
+	colors.bg_highlight = is_light and colors.bg_dark or utils.darken(colors.bg, 0.9, colors.fg)
 
 	colors.bg_columns = opts.transparent and colors.bg or utils.lighten(colors.bg, 0.98, colors.fg)
 	colors.bg_visual = is_light and colors.charcoal_medium or colors.grey_darker
@@ -50,7 +50,7 @@ function M.setup(opts)
 	colors.fg_sidebar = colors.fg_dark
 
 	-- Popups
-	colors.bg_popup = is_light and colors.charcoal_light or colors.charcoal_medium
+	colors.bg_popup = is_light and colors.charcoal or colors.charcoal_medium
 	colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
 	colors.bg_menusel = colors.select_popup
 
