@@ -26,8 +26,8 @@ local M = {
 	bg_dark = "#e1dcda",
 	bg_darker = "#c8c3c2",
 	comment = "#aaa4a5",
-	fg = "#2b2a29",
-	fg_dark = "#222120",
+	fg = "#161515",
+	fg_dark = "#121111",
 	fg_gutter = "#c0bcbc",
 	terminal_black = "#5c5b5b",
 
