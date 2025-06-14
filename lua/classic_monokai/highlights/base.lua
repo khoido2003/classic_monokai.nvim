@@ -32,7 +32,7 @@ function M.get(c, opts)
 		CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorIM = { fg = c.bg, bg = c.blue }, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-		CursorLineNr = { fg = c.grey_lighter }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLineNr = { fg = c.fg }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		DiffAdd = { fg = c.green, bg = c.diff.add }, -- diff mode: Added line |diff.txt|
 		DiffChange = { bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { fg = c.magenta, bg = c.diff.delete }, -- diff mode: Deleted line |diff.txt|
