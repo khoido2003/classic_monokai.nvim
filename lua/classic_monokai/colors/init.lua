@@ -42,7 +42,7 @@ function M.setup(opts)
 	colors.fg_float = colors.fg
 
 	-- Set the background for the current line (current cursor position)
-	colors.bg_highlight = is_light and colors.charcoal or utils.darken(colors.bg, 0.93, colors.fg)
+	colors.bg_highlight = is_light and colors.charcoal or utils.darken(colors.bg, 0.94, colors.fg)
 	-- file tree current line
 	colors.bg_highlight_sidebar = is_light and utils.darken(colors.bg, 0.8, colors.fg)
 		or utils.darken(colors.bg, 0.9, colors.fg)
@@ -56,7 +56,7 @@ function M.setup(opts)
 	-- Popups
 	colors.bg_popup = is_light and colors.white or colors.charcoal_light
 	colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
-	colors.bg_menusel = is_light and colors.charcoal_medium or colors.select_popup
+	colors.bg_menusel = colors.select_popup
 
 	-- For lsp floats messages, git, diffs, etc.
 	colors.error = colors.red
