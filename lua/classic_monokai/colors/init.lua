@@ -26,7 +26,7 @@ function M.setup(opts)
 
 	-- Statusline
 	colors.bg_statusline = is_light and utils.darken(colors.bg, 0.93, colors.fg) or colors.grey_darker_alt
-	colors.bg_status_alt = is_light and colors.grey_lighter or colors.charcoal_light
+	colors.bg_status_alt = is_light and colors.charcoal_medium or colors.charcoal_light
 	colors.fg_statusline = colors.fg_dark
 
 	-- Sidebar and Floats
@@ -41,7 +41,8 @@ function M.setup(opts)
 	colors.fg_float = colors.fg
 
 	-- Set the background for the current line (current cursor position)
-	colors.bg_highlight = utils.darken(colors.bg, 0.9, colors.fg) -- (0.97 for #313131)
+	colors.bg_highlight = is_light and utils.darken(colors.bg, 0.8, colors.fg)
+		or utils.darken(colors.bg, 0.9, colors.fg)
 
 	colors.bg_columns = opts.transparent and colors.bg or utils.lighten(colors.bg, 0.98, colors.fg)
 	colors.bg_visual = is_light and colors.charcoal or colors.grey_darker
