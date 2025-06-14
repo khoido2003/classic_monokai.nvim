@@ -10,6 +10,7 @@ local M = {
 	charcoal = "#ede7e5",
 	charcoal_light = "#f1ecea",
 	charcoal_medium = "#d5d0ce",
+	charcoal_dark = "#beb9b7",
 	grey = "#645f5b",
 	grey_dark = "#837f7c",
 	grey_darker = "#938f8c",
@@ -19,7 +20,7 @@ local M = {
 	grey_medium = "#746f6b",
 
 	black = "#2d2c2c",
-	white = "#ffffff",
+	white = "#fefaf9",
 
 	bg = "#faf4f2",
 	bg_dark = "#e1dcda",
