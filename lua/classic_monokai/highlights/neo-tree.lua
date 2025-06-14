@@ -16,6 +16,10 @@ function M.get(c, opts)
 		NeoTreeFileNameOpened = { fg = c.orange },
 		NeoTreeRootName = { fg = c.magenta, italic = true },
 		NeoTreeDimText = { fg = c.fg_gutter },
+
+		NeoTreeCursorLine = {
+			bg = c.bg_highlight_sidebar,
+		},
 		NeoTreeWinSeparator = {
 			fg = opts.hl_styles.sidebars == "transparent" and c.border or c.bg_sidebar,
 			bg = c.bg_sidebar,

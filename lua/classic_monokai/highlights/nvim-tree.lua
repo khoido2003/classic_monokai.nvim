@@ -16,9 +16,12 @@ function M.get(c, opts)
 		NvimTreeNormalNC = "NvimTreeNormal",
 		NvimTreeOpenedFile = { bg = c.bg_highlight },
 		NvimTreeOpenedFolderName = { fg = c.fg, bold = true },
-		NvimTreeRootFolder = { fg = c.magenta, italic = true },
+		NvimTreeRootFolder = { fg = c.magenta, italic = false },
 		NvimTreeSpecialFile = { fg = c.green, underline = true },
 		NvimTreeSymlink = { fg = c.blue },
+
+		NvimTreeCursorLine = { bg = c.bg_highlight_sidebar },
+
 		NvimTreeWinSeparator = {
 			fg = opts.hl_styles.sidebars == "transparent" and c.border or c.bg_sidebar,
 			bg = c.bg_sidebar,
