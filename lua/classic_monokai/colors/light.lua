@@ -15,8 +15,8 @@ local M = {
 	grey_dark = "#a29f9d",
 	grey_darker = "#c1bfbd",
 	grey_darker_alt = "#b2afad",
-	grey_light = "#3c3937",
-	grey_lighter = "#282624",
+	grey_light = "#5a5652",
+	grey_lighter = "#504c49",
 	grey_medium = "#746f6b",
 
 	black = "#2d2c2c",
