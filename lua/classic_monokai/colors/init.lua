@@ -58,6 +58,7 @@ function M.setup(opts)
 	colors.bg_popup = is_light and colors.white or colors.charcoal_light
 	colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
 	colors.bg_menusel = colors.select_popup
+    colors.completion_text = is_light and colors.magenta or colors.yellow
 
 	-- For lsp floats messages, git, diffs, etc.
 	colors.error = colors.red
