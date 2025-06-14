@@ -41,11 +41,10 @@ function M.setup(opts)
 	colors.fg_float = colors.fg
 
 	-- Set the background for the current line (current cursor position)
-	colors.bg_highlight = is_light and utils.darken(colors.bg, 0.8, colors.fg)
-		or utils.darken(colors.bg, 0.9, colors.fg)
+	colors.bg_highlight = is_light and colors.charcoal or utils.darken(colors.bg, 0.9, colors.fg)
 
 	colors.bg_columns = opts.transparent and colors.bg or utils.lighten(colors.bg, 0.98, colors.fg)
-	colors.bg_visual = is_light and colors.charcoal or colors.grey_darker
+	colors.bg_visual = is_light and colors.charcoal_medium or colors.grey_darker
 	colors.bg_search = colors.yellow
 	colors.fg_search = is_light and colors.white or colors.black
 	colors.fg_sidebar = colors.fg_dark
