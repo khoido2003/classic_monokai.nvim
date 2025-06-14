@@ -46,7 +46,7 @@ local M = {
 	red = "#e14775",
 	yellow_alt = "#ffcc00",
 	git = {
-		add = "##269d69",
+		add = "#269d69",
 		change = "#e16032",
 		delete = "#e14775",
 	},
