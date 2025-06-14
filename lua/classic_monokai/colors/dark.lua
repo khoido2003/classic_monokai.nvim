@@ -9,13 +9,13 @@ local M = {
 
 	charcoal = "#1d1e19",
 	charcoal_medium = "#171814",
-	charcoal_light = "#343530",
+	charcoal_light = "#22221f",
 	grey = "#75715e",
 	grey_dark = "#524f42",
 	grey_darker = "#464438",
 	grey_darker_alt = "#3b392f",
-	grey_light = "#837f6e",
-	grey_lighter = "#918d7e",
+	grey_light = "#9c998b",
+	grey_lighter = "#cbc9c2",
 	grey_medium = "#696655",
 
 	black = "#333333",
@@ -30,7 +30,7 @@ local M = {
 	fg_gutter = "#5a594d",
 	terminal_black = "#333333",
 
-	select_popup = "#3b3c33",
+	select_popup = "#3d3e37",
 	delimiter_orange = "#ff9f43",
 	delimiter_yellow = "#f0d264",
 	delimiter_green = "#99cc66",

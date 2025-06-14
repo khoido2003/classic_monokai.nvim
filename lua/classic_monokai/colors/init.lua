@@ -26,8 +26,8 @@ function M.setup(opts)
 
 	-- Statusline
 	colors.bg_statusline = is_light and utils.darken(colors.bg, 0.93, colors.fg)
-		or utils.darken(colors.bg, 0.93, colors.fg)
-	colors.bg_status_alt = is_light and colors.charcoal_medium or colors.charcoal_light
+		or utils.darken(colors.bg, 0.95, colors.fg)
+	colors.bg_status_alt = is_light and colors.charcoal_medium or colors.charcoal
 	colors.fg_statusline = colors.fg_dark
 
 	-- Sidebar and Floats
