@@ -28,7 +28,7 @@ local M = {
 	fg = "#2b2a29",
 	fg_dark = "#222120",
 	fg_gutter = "#c0bcbc",
-	terminal_black = "#fcf7f6",
+	terminal_black = "#5c5b5b",
 
 	select_popup = "#e3dfd9",
 	delimiter_orange = "#ff7733",
@@ -46,7 +46,7 @@ local M = {
 	red = "#e14775",
 	yellow_alt = "#ffcc00",
 	git = {
-		add = "#269d69",
+		add = "##269d69",
 		change = "#e16032",
 		delete = "#e14775",
 	},
