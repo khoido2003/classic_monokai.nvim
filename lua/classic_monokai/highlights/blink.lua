@@ -7,19 +7,19 @@ M.url = "https://github.com/saghen/blink.cmp"
 ---@type monokai.HighlightsFn
 function M.get(c)
 	local ret = {
-		BlinkCmpKind = { fg = c.green, bg = c.none }, -- Kind icon/text of the completion item (default: "Special")
-		BlinkCmpLabel = { fg = c.grey_light, bg = c.none }, -- Cmp menu entry main text
-		BlinkCmpLabelDeprecated = { fg = c.comment, bg = c.none, strikethrough = true }, -- Deprecated entry label
-		BlinkCmpLabelMatch = { fg = c.magenta }, -- Partial text matching
-		BlinkCmpMenu = { fg = c.comment, bg = c.bg_float },
-		BlinkCmpMenuBorder = { fg = c.grey_light, bg = c.bg_float },
-		BlinkCmpMenuSelection = { bg = c.bg_statusline }, -- The current selected item
-		BlinkCmpLabelDetail = { fg = c.comment, italic = true }, -- Label description of the completion item (default: "NonText")
-		BlinkCmpLabelDescription = "BlinkCmpLabelDetail", -- Label description of the completion item (default: "NonText")
-		BlinkCmpSource = { fg = c.comment, bg = c.none }, -- Source of the completion item (default: "NonText")
-		BlinkCmpGhostText = { fg = c.grey_medium, bg = c.none }, -- Preview item with ghost text (default: "NonText")
+		BlinkCmpKind = { fg = c.fg, bg = c.none }, -- Kind icon/text, aligned with CmpItemAbbr
+		BlinkCmpLabel = { fg = c.grey_lighter, bg = c.none }, -- Main text, matched to CmpItemAbbr
+		BlinkCmpLabelDeprecated = { fg = c.grey_lighter, bg = c.none, strikethrough = true }, -- Deprecated label, matched to CmpItemAbbrDeprecated
+		BlinkCmpLabelMatch = { fg = c.fg, bg = c.none }, -- Partial text matching, matched to CmpItemAbbrMatch
+		BlinkCmpMenu = { fg = c.comment, bg = c.bg_float }, -- Menu background, matched to CmpDocumentation
+		BlinkCmpMenuBorder = { fg = c.border_highlight, bg = c.bg_float }, -- Menu border, matched to CmpDocumentationBorder
+		BlinkCmpMenuSelection = { fg = c.completion_text, bg = c.bg_menusel }, -- Selected item, matched to PmenuSel
+		BlinkCmpLabelDetail = { fg = c.comment, bg = c.none, italic = true }, -- Label detail, matched to CmpItemMenu
+		BlinkCmpLabelDescription = "BlinkCmpLabelDetail", -- Link to BlinkCmpLabelDetail, unchanged
+		BlinkCmpSource = { fg = c.comment, bg = c.none }, -- Source, matched to CmpItemMenu
+		BlinkCmpGhostText = { fg = c.grey_lighter, bg = c.none, italic = true }, -- Ghost text, matched to CmpGhostText
 	}
-	-- BlinkCmpKind<kind>	Special	Kind icon/text of the completion item
+	-- Generate kind highlights, unchanged as it matches nvim-cmp's approach
 	utils.generate_kinds(ret, "BlinkCmpKind%s")
 	return ret
 end
