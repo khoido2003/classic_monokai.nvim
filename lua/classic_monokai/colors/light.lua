@@ -31,7 +31,7 @@ local M = {
 	fg_gutter = "#c0bcbc",
 	terminal_black = "#5c5b5b",
 
-	select_popup = "#ede7e5",
+	select_popup = "#fbfafa",
 	delimiter_orange = "#ff7733",
 	delimiter_yellow = "#e0b000",
 	delimiter_green = "#33aa77",
