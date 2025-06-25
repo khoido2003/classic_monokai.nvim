@@ -36,7 +36,7 @@ function M.setup(opts)
 		or is_light and colors.bg_statusline
 		or colors.charcoal
 	colors.bg_float = opts.hl_styles.floats == "transparent" and colors.none
-		or (opts.hl_styles.floats == "dark" and is_light) and colors.charcoal_medium
+		or (opts.hl_styles.floats == "dark" and is_light) and colors.charcoal_dark
 		or opts.hl_styles.floats == "dark" and colors.bg_dark
 		or colors.charcoal
 	colors.fg_float = colors.fg
@@ -55,10 +55,10 @@ function M.setup(opts)
 	colors.fg_sidebar = colors.fg_dark
 
 	-- Popups
-	colors.bg_popup = is_light and colors.charcoal or colors.charcoal_light
+	colors.bg_popup = is_light and colors.charcoal_medium or colors.charcoal_light
 	colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
 	colors.bg_menusel = colors.select_popup
-    colors.completion_text = is_light and colors.magenta or colors.yellow
+	colors.completion_text = is_light and colors.magenta or colors.yellow
 
 	-- For lsp floats messages, git, diffs, etc.
 	colors.error = colors.red
