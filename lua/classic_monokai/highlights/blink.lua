@@ -11,7 +11,7 @@ function M.get(c)
 		BlinkCmpLabel = { fg = c.grey_lighter, bg = c.none }, -- Main text, matched to CmpItemAbbr
 		BlinkCmpLabelDeprecated = { fg = c.grey_lighter, bg = c.none, strikethrough = true }, -- Deprecated label, matched to CmpItemAbbrDeprecated
 		BlinkCmpLabelMatch = { fg = c.fg, bg = c.none }, -- Partial text matching, matched to CmpItemAbbrMatch
-		BlinkCmpMenu = { fg = c.comment, bg = c.bg_float }, -- Menu background, matched to CmpDocumentation
+		BlinkCmpMenu = { fg = c.comment, bg = c.bg_popup }, -- Menu background, matched to CmpDocumentation
 		BlinkCmpMenuBorder = { fg = c.border_highlight, bg = c.bg_float }, -- Menu border, matched to CmpDocumentationBorder
 		BlinkCmpMenuSelection = { fg = c.completion_text, bg = c.bg_menusel }, -- Selected item, matched to PmenuSel
 		BlinkCmpLabelDetail = { fg = c.comment, bg = c.none, italic = true }, -- Label detail, matched to CmpItemMenu
