@@ -9,7 +9,7 @@ local M = {
 
 	charcoal = "#ede7e5",
 	charcoal_light = "#f1ecea",
-	charcoal_medium = "#efe9e8",
+	charcoal_medium = "#ddd9d8",
 	charcoal_dark = "#d5d0ce",
 	grey = "#645f5b",
 	grey_dark = "#a29f9d",
