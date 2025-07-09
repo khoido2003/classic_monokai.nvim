@@ -20,8 +20,8 @@ function M.get()
 		}
 
 		monokai.command = {
-			a = { fg = c.green, bg = c.black },
-			b = { fg = c.green, bg = c.bg_status_alt },
+			a = { fg = c.black, bg = c.orange },
+			b = { fg = c.fg, bg = c.bg_status_alt },
 		}
 
 		monokai.visual = {
@@ -35,8 +35,8 @@ function M.get()
 		}
 
 		monokai.terminal = {
-			a = { fg = c.green, bg = c.black },
-			b = { fg = c.green, bg = c.bg_status_alt },
+			a = { fg = c.black, bg = c.fg },
+			b = { fg = c.fg, bg = c.bg_status_alt },
 		}
 
 		monokai.inactive = {
