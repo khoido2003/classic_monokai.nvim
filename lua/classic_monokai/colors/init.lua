@@ -55,7 +55,7 @@ function M.setup(opts)
 	colors.fg_sidebar = colors.fg_dark
 
 	-- Popups
-	colors.bg_popup = is_light and colors.charcoal_medium or colors.charcoal_light
+	colors.bg_popup = is_light and colors.charcoal or colors.charcoal_light
 	colors.bg_menuselbar = utils.lighten(colors.bg_popup, 0.95)
 	colors.bg_menusel = colors.select_popup
 	colors.completion_text = is_light and colors.magenta or colors.yellow
